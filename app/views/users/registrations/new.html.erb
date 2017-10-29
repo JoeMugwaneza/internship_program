@@ -1,0 +1,78 @@
+ <% content_for :title do %>
+    <title>Register | Internship Program</title>
+  <% end %>
+
+  <h2>Register</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :id_number %><br />
+    <%= f.text_field :id_number, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :district %><br />
+    <%= f.text_field :district, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sector %><br />
+    <%= f.text_field :sector, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cell %><br />
+    <%= f.text_field :cell, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :college %><br />
+    <%= f.text_field :college, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :field_of_studies %><br />
+    <%= f.text_field :field_of_studies, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
