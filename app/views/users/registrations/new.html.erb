@@ -16,6 +16,10 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autocomplete: "off" %>
   </div>
+  <div class="field">
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel, autocomplete: "off" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -42,10 +46,6 @@
     <%= f.text_field :cell, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :tel %><br />
-    <%= f.text_field :tel, autocomplete: "off" %>
-  </div>
 
   <div class="field">
     <%= f.label :college %><br />
@@ -56,6 +56,13 @@
     <%= f.label :field_of_studies %><br />
     <%= f.text_field :field_of_studies, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :gender %><br/>
+      <%= f.radio_button :is_female, true %> <%= f.label :is_female, "Female" %><br/>
+      <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %>
