@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+  <%= form_for @survey do |f| %>
+  <% if @survey.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
+    <ul>
+      <% @survey.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+   <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <%= f.fields_for :questions do |builder| %>
+    <%= render "question_fields", :f => builder %>
+  <% end %>
+  <p><%= f.submit "Submit" %></p>
+  
+  <% end %>
+
+</body>
+</html>

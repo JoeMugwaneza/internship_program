@@ -1,0 +1,8 @@
+<p>
+  <%= f.label :content, "Question" %><br />
+  <%= f.text_field :title, :rows => 4 %><br />
+</p>
+<%= f.fields_for :answers do |builder| %>
+  <%= render 'answer_fields', :f => builder %>
+<% end %>
+
