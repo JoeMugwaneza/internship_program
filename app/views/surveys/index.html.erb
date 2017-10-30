@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% content_for :title do %>
+    <title>Survey Dashboard | Internship Program</title>
+<% end %>
+</head>
+<body>
+  <div>
+    <%= render @surveys.reverse %>
+  </div>
+
+</body>
+</html>
