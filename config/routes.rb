@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :surveys
   resources :questions
   resources :answers
+
+
+  # designs
+  get "/signup" => "pages#signup"
+  get "/home" => "pages#home"
 end
 
 
