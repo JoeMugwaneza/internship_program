@@ -3,12 +3,36 @@
 <head>
   <% content_for :title do %>
     <title>Survey Dashboard | Internship Program</title>
-<% end %>
+  <% end %>
 </head>
 <body>
-  <div>
-    <%= render @surveys.reverse %>
-  </div>
 
+<div class="container fluid">
+  <div class="row">
+    <div class="col-md-0"></div>
+    <div class="col-md-12">
+    <%= link_to "New Survey", new_survey_path%>
+
+  <table class="table table-bordered">
+    <thead>
+      <th>Survey Title</th>
+      <th>Show Action</th>
+      <th>Edit Action</th>
+      <th>Delete Action</th>
+    </thead>
+    <tbody>
+    <% @surveys.reverse_each do |survey| %>
+      <tr>
+        <td><%= link_to survey.name, survey%></td>
+        <td><%= link_to "Show", survey_path(survey) %></td>
+        <td><%= link_to "Edit", edit_survey_path(survey) %></td>
+        <td><%= link_to "Delete", "/surveys/#{survey.id}", method: :delete %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
 </body>
 </html>

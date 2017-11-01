@@ -1,38 +1,33 @@
 class SurveysController < ApplicationController
-
+  before_action :find_survey, :only => [:show, :edit, :update, :destory]
+  before_action :find_user, :only => [:show, :edit, :update, :destory]
+  
   def index
     @surveys = Survey.all
+    find_survey
   end
 
   def show
-    find_survey
+    @answers = @survey.answers.order('created_at ASC')
   end
 
   def new
     @survey = Survey.new
-      4.times do
-        question = @survey.questions.build
-        1.times { question.answers.build }
-      end
+    @survey.answers.build
   end
 
   def create
     @survey = current_user.surveys.build(survey_params)
 
     if @survey.save
-      redirect_to @survey, notice: "survey was successfully created"
+      redirect_to survey_path(@survey), notice: "Survey was successfully created"
     else
       render :new
     end
   end
 
-  def edit
-    find_survey
-  end
-
   def update
-    @survey.update(survey_params)
-    if @survey.save 
+    if @survey.update_attributes(survey_params)
       redirect_to @survey, notice: "Survey was successfully updated"
     else 
       render :edit
@@ -40,18 +35,22 @@ class SurveysController < ApplicationController
   end
 
   def destroy
-    find_survey
+    @survey = Survey.find(params[:id])
     @survey.destroy
-      redirect_to surveys_path
+      redirect_to root_url
   end
 
   private
 
   def survey_params
-    params.require(:survey).permit(:title, :user_id,  questions_attributes: [ :id, :title, answers_attributes: [ :id, :content]])
+    params.require(:survey).permit(:name, :user_id,  answers_attributes: [:id, :content, :survey_id, :question_id])
   end
 
   def find_survey
-    @survey = Survey.find(params[:id])
+    @survey = Survey.find_by(id: params[:id])
+  end
+
+  def find_user
+    @user = @survey.user
   end
 end

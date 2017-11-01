@@ -2,13 +2,22 @@
 <html>
 <head>
   <% content_for :title do %>
-    <title><%= @survey.title %> | Internship Program</title>
+    <title><%= @survey.name %> | Internship Program</title>
 <% end %>
 </head>
 <body>
-
-  <h2><%= render @survey %></h2>
-
+  <div style="margin-left: 30px;">
+    <h2><%= @survey.name %></h2>
+      <%= link_to "Back", surveys_path %>
+    <p>
+      <ol>
+          <% @answers.each do |answer| %>
+            <li><%= answer.question.title %></li>
+              <%= answer.content %>
+          <% end %>
+      </ol>
+    </p>
+  </div>
 </body>
 </html>
 
