@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <% content_for :title do %>
+    <title>Survey Dashboard | Internship Program</title>
+  <% end %>
 </head>
 <body>
 
-  <div>
-      <h2 class="survey"><%= link_to survey.title, survey %></h2>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-0"></div>
+    <div class="col-md-12">  
 
+  <table class="table table-bordered">
+    <thead>
+      <th>Survey Title</th>
+      <th>Show Action</th>
+      <th>Edit Action</th>
+    </thead>
+    <tbody>
+    <%= @surveys.each do |survey| %>
+      <tr>
+        <td><%= link_to survey.title, survey%></td>
+        <td><%= link_to "Show", survey_path(survey) %></td>
+        <td><%= link_to "edit", edit_survey_path(survey) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
 </body>
 </html>

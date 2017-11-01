@@ -1,8 +1,10 @@
-<p>
-  <%= f.label :content, "Question" %><br />
-  <%= f.text_field :title, :rows => 4 %><br />
-</p>
-<%= f.fields_for :answers do |builder| %>
-  <%= render 'answer_fields', :f => builder %>
-<% end %>
+<fieldset>
+  <%= f.label :title, "Question" %><br>
+  <%= f.text_field :title, :rows =>3 %><br><br>
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Question" %><br>
+  <%= f.fields_for :answers do |field| %>
+    <%= render 'answer_fields', :f => field %>
+  <% end %>
+</fieldset>
 
