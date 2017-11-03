@@ -20,7 +20,6 @@ html body {
   font-family: 'Rozha One', serif;
 }
 
-
  /*btn icon back*/
 .hvr-icon-back {
   display: inline-block;
@@ -157,13 +156,13 @@ html body {
   color: #5a6e1b;
 }
 
-.home a {
+a, .btn {
   background-color: transparent;
   border-radius: 30px;
   width: 200px;
   color: white;
 }
-.home a:hover {
+a, .btn:hover {
   background-color: #495c0d;
   border: none;
   color: white;
@@ -195,26 +194,11 @@ blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
 table{border-collapse:collapse;border-spacing:0;}
 
-/* start editing from here */
-.signup a{text-decoration:none;}
-.txt-rt{text-align:right;}/* text align right */
-.txt-lt{text-align:left;}/* text align left */
-.txt-center{text-align:center;}/* text align center */
-.float-rt{float:right;}/* float right */
-.float-lt{float:left;}/* float left */
-.clear{clear:both;}/* clear float */
-.pos-relative{position:relative;}/* Position Relative */
-.pos-absolute{position:absolute;}/* Position Absolute */
-.vertical-base{ vertical-align:baseline;}/* vertical align baseline */
-.vertical-top{  vertical-align:top;}/* vertical align top */
-.signup nav.vertical ul li{ display:block;}/* vertical menu */
-.signup nav.horizontal ul li{ display: inline-block;}/* horizontal menu */
-img{max-width:100%;}
-/*end reset*/
+
 .signup {
   font-size: 100%;
     font-family: 'Lato', sans-serif;
-    background: url(https://p.w3layouts.com/demos_new/11-02-2017/circle_sign_up_form-demo_Free/1065487016/web/images/banner.jpg) no-repeat 0px 0px;
+    background: url(http://cdn30.us1.fansshare.com/image/education/education-knowledge-powerpoint-ppt-hd-wallpaper-721601665.jpg) no-repeat 0px 0px;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -223,14 +207,14 @@ img{max-width:100%;}
     background-attachment: fixed;
 }
 .signup h1,h2,h3,h4,h5,h6,input,p,a,select{
-  font-family: 'Lato', sans-serif;
+  /*font-family: 'Lato', sans-serif;*/
   margin:0;
 }
 .signup ul,label{
   margin:0;
   padding:0;
 }
-.signup body a:hover,body a{
+.signup a:hover, a{
   text-decoration:none;
 }
 /*-- main --*/
@@ -252,198 +236,20 @@ img{max-width:100%;}
 .agileits_copyright p a:hover{
   color:#fff;
 }
-.input input[type="submit"],.agileits_copyright p a,a{
-  transition:.5s ease-in;
-  -webkit-transition:.5s ease-in;
-  -moz-transition:.5s ease-in;
-  -o-transition:.5s ease-in;
-  -ms-transition:.5s ease-in;
-}
+
 .w3layouts_main h1{
   text-align: center;
-    color: #212121;
+    color: white;
     font-size: 2em;
     margin: 1em 0 .5em;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
 }
-/*-- //main --*/
-/*-- sign-up-form --*/
-.w3_agile_signup_form {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 2em 2em;
-    text-align: center;
-    border: 45px solid #62abc5;
-    border-radius: 100%;
-    height: 530px;
-    width: 530px;
-    margin: 0 auto;
-}
-.w3_agile_signup_form input[type="text"], .w3_agile_signup_form input[type="password"], .w3_agile_signup_form input[type="email"] {
-    width: 92%;
-    padding: .8em;
-    font-size: 1em;
-    margin: .8em 0;
-    outline: none;
-    color: #212121;
-    border: 1px solid #212121;
-    letter-spacing: 1px;
-    text-align: center;
-    border-radius: 5px;
-    background: none;
-}
-::-webkit-input-placeholder{
-  color:#212121 !important;
-}
-.w3_agile_signup_form input[type="submit"] {
-    padding: 0.8em 0;
-    width: 100%;
-    text-align: center;
-    font-size: 1em;
-    margin-top: .5em;
-    border: none;
-    color: #fff;
-    letter-spacing: 5px;
-    cursor: pointer;
-    background:#ea9341;
-    border-radius: 5px;
-    font-weight: 600;
-    outline: none;
-}
-.w3_agile_signup_form input[type="submit"]:hover {
-    color: #fff;
-    background: #25333e;
-    transition: .5s all;
-  -webkit-transition: .5s all;
-    -moz-transition: .5s all;
-    -o-transition: .5s all;
-    -ms-transition: .5s all;
-}
+
 .signup form.agileits_w3layouts_form {
     padding: 0 4em;
 }
-.w3_agile_signup_form h2{
-  text-align:center;
-  font-size:1em;
-  color:#212121;
-  padding-bottom:.8em;
-  position:relative;
-  margin-bottom:1em;
-}
-.w3_agile_signup_form h2:after{
-  content: '';
-    background:#ea9341;
-    height: 2px;
-    width: 25%;
-    position: absolute;
-    bottom: 0%;
-    left: 38%;
-}
-/*--//signin-form--*/
-/*-- start-responsive-design --*/
-@media (max-width:1024px){
-  .main {
-    padding-bottom: 2em;
-  }
-}
-@media (max-width:800px){
-  .w3_agile_signup_form {
-    border: 30px solid #62abc5;
-    height: 400px;
-    width: 400px;
-  }
-  .w3layouts_main h1 {
-    font-size: 1.7em;
-  }
-  .w3_agile_signup_form input[type="text"], .w3_agile_signup_form input[type="password"], .w3_agile_signup_form input[type="email"] {
-    width: 87%;
-    padding: .5em 1em;
-    margin: .5em 0;
-  }
-}
-@media (max-width:736px){
-  .main {
-    padding-bottom: 2em;
-  }
-}
-@media (max-width: 600px){
-  .w3_agile_signup_form {
-    border: 20px solid #62abc5;
-    height: 350px;
-    padding: 1em;
-    width: 350px;
-  }
-  .w3layouts_main h1 {
-    font-size: 1.5em;
-    letter-spacing: 2px;
-    margin: 1em 0 0.1em;
-  }
-  .w3_agile_signup_form h2,.agileits_copyright p {
-    font-size: 14px;
-  }
-  .w3_agile_signup_form input[type="text"], .w3_agile_signup_form input[type="password"], .w3_agile_signup_form input[type="email"] {
-    width: 86%;
-    font-size: 14px;
-  }
-  .w3_agile_signup_form input[type="submit"] {
-    padding: 0.7em 0;
-    font-size: 14px;
-    letter-spacing: 3px;
-  }
-}
-@media (max-width: 414px){
-  .w3_agile_signup_form {
-    height: 300px;
-    padding: .5em;
-    width: 300px;
-  }
-  .w3layouts_main h1 {
-    font-size: 1.4em;
-    letter-spacing: 0px;
-  }
-  form.agileits_w3layouts_form {
-    padding: 0 3em;
-  }
-  .w3_agile_signup_form input[type="text"], .w3_agile_signup_form input[type="password"], .w3_agile_signup_form input[type="email"] {
-    font-size: 12px;
-    margin: .3em 0;
-  }
-  .w3_agile_signup_form input[type="submit"] {
-    padding: 0.6em 0;
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
-}
-@media (max-width: 375px){
-  .w3layouts_main h1 {
-    font-size: 1.3em;
-  }
-}
-@media (max-width: 320px){
-  .w3layouts_main h1 {
-    font-size: 1.1em;
-    letter-spacing: 1px;
-  }
-  .w3_agile_signup_form {
-    height: 270px;
-    padding: .5em;
-    width: 270px;
-    border: 10px solid #62abc5;
-  }
-  .w3_agile_signup_form h2, .agileits_copyright p {
-    font-size: 13px;
-  }
-  .w3_agile_signup_form input[type="text"], .w3_agile_signup_form input[type="password"], .w3_agile_signup_form input[type="email"] {
-    font-size: 11px;
-    margin: .4em 0;
-  }
-  .w3_agile_signup_form input[type="submit"] {
-    padding: 0.6em 0;
-    font-size: 11px;
-    margin-top: 0.2em;
-  }
-  .main {
-    padding-bottom: 1em;
-  }
-}
+
+
+/*https://p.w3layouts.com/demos_new/11-02-2017/circle_sign_up_form-demo_Free/1065487016/web/images/banner.jpg*/
