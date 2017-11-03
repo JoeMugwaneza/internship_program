@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="#">
+    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">  
+
     <% if content_for?(:title) %>
       <%= content_for(:title) %>
     <% else %>
@@ -13,11 +19,14 @@
   </head>
 
   <body>
+    <nav class="mynavbar">
+      
     <% if user_signed_in? %>
       <a style="float: right;" href="<%=signout_path%>">LOGOUT</a>
     <% else %>
       <a href="<%= new_user_session_path %>">LOGIN</a>
     <% end %>
+    </nav>
   
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

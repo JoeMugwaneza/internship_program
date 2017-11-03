@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title></title>
   <% content_for :title do %>
   <title>Register | Internship Program</title>
   <% end %>
@@ -36,21 +37,6 @@
       </div>
     </div>
 
-    <div class="row">    
-    <div class="field col-md-4">
-      <%= f.text_field :district, autocomplete: "off", class:"form-control", placeholder:"District..." %>
-    </div>
-
-    <div class="field col-md-4">
-      <%= f.text_field :sector, autocomplete: "off", class:"form-control", placeholder:"Sector..." %>
-    </div>
-
-    <div class="field col-md-4">
-      <%= f.text_field :cell, autocomplete: "off", class:"form-control", placeholder:"Cell..." %>
-    </div>
-  </div>
-
-
     <div class="row">
      <div class="field">
       <div class="col-md-6">
@@ -59,6 +45,21 @@
       <div class="col-md-6">
         <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %>
       </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="field col-md-6">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Create Password..." %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Retype Password..." %>
     </div>
   </div>
 
@@ -74,6 +75,20 @@
 
 
   <div class="row">    
+    <div class="field col-md-4">
+      <%= f.text_field :district, autocomplete: "off", class:"form-control", placeholder:"District..." %>
+    </div>
+
+    <div class="field col-md-4">
+      <%= f.text_field :sector, autocomplete: "off", class:"form-control", placeholder:"Sector..." %>
+    </div>
+
+    <div class="field col-md-4">
+      <%= f.text_field :cell, autocomplete: "off", class:"form-control", placeholder:"Cell..." %>
+    </div>
+  </div>
+
+  <div class="row">    
     <div class="field col-md-6">
       <%= f.text_field :college, autocomplete: "off", class:"form-control", placeholder:"College/University..." %>
     </div>
@@ -83,33 +98,18 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="field col-md-6">
-     <div style="display: none;">       
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-     </div>
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Create Password..." %>
-    </div>
 
-    <div class="field col-md-6">
-    <div style="display: none;">      
-      <%= f.label :password_confirmation %><br />
-    </div>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Retype Password..." %>
-    </div>
-  </div>
+
+
+
+
 
   <div class="actions">
-    <%= f.submit "Sign up", class:"btn btn-default" %>
+    <%= f.submit "Sign up" %>
   </div>
   <% end %>
 
-  <p class="pull-right">Already have an account? <a class="btn btn-info" href="/users/sign_in" style="border: none; background-color: none; text-decoration: underline;">Sign in</a></p>
-
-  <%#= render "users/shared/links" %>
+  <%= render "users/shared/links" %>
 
 </section>
 </body>

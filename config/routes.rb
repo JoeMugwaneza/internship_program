@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'surveys#index'
+  root to: 'pages#home'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   resources :surveys
   resources :questions
   resources :answers
+
+  # designs
+  get "/signup" => "pages#signup"
+  get "/home" => "pages#home"
+  get "/signup2" =>"pages#signup2"
 end
 
 
