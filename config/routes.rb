@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  root to: 'surveys#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   # designs
   get "/signup" => "pages#signup"
-  get "/home" => "pages#home"
+  get "/welcome" => "pages#welcome", as: "welcome"
   get "/signup2" =>"pages#signup2"
 end
 

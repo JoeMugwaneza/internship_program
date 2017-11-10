@@ -9,11 +9,15 @@ class User < ApplicationRecord
   
   attr_accessor :login
 
-  validates :id_number,
-  :presence => true,
-  :uniqueness => {
-    :case_sensitive => false
-  }
+  validates :first_name, presence: {message: "must be filled"}
+  validates :last_name, presence: {message: "must be filled"}
+  validates :id_number, numericality: {message: "will have to be 16"}
+  validates :college, presence: {message: "must be filled"}
+  validates :field_of_studies, presence: {message: "must be filled"}
+  validates :district, presence: {message: "must be filled"}
+  validates :sector, presence: {message: "must be filled"}
+  validates :cell, presence: {message: "must be filled"}
+  validates :tel, presence: {message: "must be filled"}
 
   def login=(login)
     @login = login
@@ -45,4 +49,17 @@ class User < ApplicationRecord
       return "Unspecified"
     end
   end
+
+
+  rails_admin do
+    # configure :reset_password
+    list do
+      include_fields :first_name, :last_name, :email, :admin, :id_number, :district, :sector, :cell, :tel, :college, :field_of_studies, :is_female
+    end
+    edit do
+      exclude_fields :id, :encrypted_password, :created_at, :updated_at, :remember_created_at, :sign_in_count , :current_sign_in_at, :reset_password_token, :reset_password_sent_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip
+      # include_fields :reset_password
+    end
+  end
+
 end
