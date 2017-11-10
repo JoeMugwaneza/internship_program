@@ -27,8 +27,8 @@
       </ul>
     </div>
     <% end %>
-    <%= f.label :survey_name %><br>
-    <%= f.text_field :name, class:"form-control", placeholder:"Survey Name . . ." %><br>
+    <%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br>
+    <%= f.text_field :name, value: "#{@survey.name = "MonthlyInternReport"}#{current_user.last_name}#{current_user.first_name}", class:"form-control", placeholder:"Survey Name . . ." %><br>
     <div>
       <ol>
         <% Question.all.each do |question| %>

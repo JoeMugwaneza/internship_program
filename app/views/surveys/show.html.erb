@@ -7,16 +7,18 @@
 </head>
 <body>
   <div style="margin-left: 30px;">
-    <h2><%= @survey.name %></h2>
-      <%= link_to "Back", surveys_path %>
+    <h2>Report Title: <%= @survey.name %></h2>
+     <h3>Reported By : <%="#{ @survey.user.first_name} #{@survey.user.last_name}" %></h3><br>
+     <h4>Reporter Gender: <%= @survey.user.gender %></h4>
     <p>
       <ol>
           <% @answers.each do |answer| %>
             <li><%= answer.question.title %></li>
-              <%= answer.content %>
+             <br> <%= answer.content %>
           <% end %>
       </ol>
-    </p>
+    </p><br>
+    <%= link_to "Back", surveys_path %>
   </div>
 </body>
 </html>
