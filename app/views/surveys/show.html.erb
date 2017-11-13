@@ -9,12 +9,11 @@
   <div style="margin-left: 30px;">
     <h2>Report Title: <%= @survey.name %></h2>
      <h3>Reported By : <%="#{ @survey.user.first_name} #{@survey.user.last_name}" %></h3><br>
-     <h4>Reporter Gender: <%= @survey.user.gender %></h4>
+     <h4>Reporter Gender: <%= @survey.user.gender %></h4><br>
     <p>
       <ol>
-          <% @answers.each do |answer| %>
-            <li><%= answer.question.title %></li>
-             <br> <%= answer.content %>
+          <% @survey.answers.each do |answer| %>
+            <li><%= answer.question.title %></li> <br>
           <% end %>
       </ol>
     </p><br>
