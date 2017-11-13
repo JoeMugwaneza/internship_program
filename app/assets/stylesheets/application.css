@@ -156,7 +156,7 @@ html body {
   color: #5a6e1b;
 }
 
-a, .btn {
+/*a, .btn {
   background-color: transparent;
   border-radius: 30px;
   width: 200px;
@@ -166,7 +166,7 @@ a, .btn:hover {
   background-color: #495c0d;
   border: none;
   color: white;
-}
+}*/
 
 .home-back nav li a {
   border-radius: 30px;

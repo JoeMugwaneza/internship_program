@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'dashboards/index'
+
+  get 'dashboards/show'
+
+  get 'dashboard/index'
+
+  get 'dashboard/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'surveys#index'
 
@@ -18,6 +26,7 @@ Rails.application.routes.draw do
   get "/signup" => "pages#signup"
   get "/welcome" => "pages#welcome", as: "welcome"
   get "/signup2" =>"pages#signup2"
+  get '/dashboards' => "dashboards#index"
 end
 
 
