@@ -1,9 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
 
   <% content_for :title do %>
     <title>Sign in | Internship Program</title>
   <% end %>
 
+  <style type="text/css">
+    .mynavbar {
+      display: none;
+    }
+  </style>
 
+</head>
+<body class="login">
+
+
+
+<div align="center">
+  
   <div class="tile">
   <div class="tile-header">
     <h2 style="color: white; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">SIGN IN</h2>
@@ -27,12 +42,17 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:"login-submit-btn" %>
   </div>
     <%= render "devise/shared/links" %>
 <% end %>
+</div>
 
 <!-- <p>Don't have an account? <a class="btn btn-info" href="users/sign_up" style="border: none; background-color: none; text-decoration: underline;">Register</a></p>
  -->
 
 
+
+</body>
+</html>
+  
