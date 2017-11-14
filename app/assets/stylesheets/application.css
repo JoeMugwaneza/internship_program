@@ -242,3 +242,54 @@ table{border-collapse:collapse;border-spacing:0;}
 
 
 /*https://p.w3layouts.com/demos_new/11-02-2017/circle_sign_up_form-demo_Free/1065487016/web/images/banner.jpg*/
+
+
+
+/*navbarrrrrrrrrr*/
+
+.menu
+{
+background-color: #062844;
+border-bottom: 4px solid #04A3ED;
+width:100%;
+height: auto;
+padding: 0 10px;
+position: fixed;
+margin: 0px;
+z-index: 1;
+opacity: 0.9;
+margin-top:-300px;
+}
+
+.menu  .navbar-nav > .active > a
+{
+background-color : #04A3ED;
+color: white;
+font-weight: bold;
+}
+
+.menu  .navbar-nav >  li >  a
+{
+font-size: 16px;
+color: white;
+padding: 10px 35px;
+
+}
+.menu  .navbar-nav >  li >  a:hover
+{
+background-color: #04A3ED;
+}
+
+.navbar-header > a
+{
+font-family: 'EB Garamond', serif;
+text-decoration: none;
+color: white;
+font-size: 25px;
+margin-top: -30px;
+}
+.navbar-header > a:hover
+{
+text-decoration: none;
+color: #04A3ED;
+}

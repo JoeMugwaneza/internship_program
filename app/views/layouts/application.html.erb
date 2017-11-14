@@ -16,20 +16,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
   </head>
 
   <body>
-    <nav class="mynavbar">
-      
+    
+
+<div class="menu">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#">RYAF</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+      <!--   <li><a href="#" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
     <% if user_signed_in? %>
-      <a style="float: right;" href="<%=signout_path%>">LOGOUT</a>
-    <% else %>
-      <!-- <a href="<%#= new_user_session_path %>">LOGIN</a> -->
-    <% end %>
-    </nav>
+        <li><a href="<%=signout_path%>"><span class="glyphicon glyphicon-log-out"></span> Logout<a></li>
+        <%else%>
+ <li><a href="<%new_user_session_path%>"><span class="glyphicon glyphicon-log-in"></span> Login<a></li>
+  <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
   
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
+
