@@ -9,17 +9,18 @@ html {
   font-size: 14px;
 }
 
-body {
+.signup {
   background: linear-gradient(to bottom, #68d8d6, #ffffff);
+  background-size: cover;
   color: #454749;
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   justify-content: center;
   font-family: 'Source Sans Pro', sans-serif;
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.signup h1, h2, h3, h4, h5, h6 {
   font-family: Monoton, sans-serif;
   margin-bottom: .5rem;
 }
