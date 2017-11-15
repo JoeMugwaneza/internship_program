@@ -276,3 +276,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .nav navbar-nav navbar-right > li > a > span {
   color: white;
 }
+
+.paginate_button {
+  cursor: pointer;
+}

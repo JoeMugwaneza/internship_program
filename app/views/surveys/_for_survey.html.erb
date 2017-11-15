@@ -34,7 +34,7 @@
          </div>
           <%= f.fields_for :answers do |field| %>
           <%= field.hidden_field :question_id, value: "#{question_id = question.id}" %>
-          <%= field.text_area :content, class:"form-control", placeholder:"Write the answer here . . ." %>
+          <%= field.text_area :content, class:"form-control", placeholder:"Write the answer here . . ." %><br>
           <% end %>
         </li>
         <% end %>
@@ -43,7 +43,7 @@
     </div>
 
 
-    <%= f.submit "Initiate Survey", class:"btn btn-default" %>
+    <%= f.submit "Initiate Survey", class: "login-submit-btn" %>
     <% end %>
   </section>
 </body>
