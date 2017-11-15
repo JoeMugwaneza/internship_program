@@ -1,18 +1,9 @@
 Rails.application.routes.draw do
-  get 'dashboards/index'
-
-  get 'dashboards/show'
-
-  get 'dashboard/index'
-
-  get 'dashboard/show'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'surveys#index'
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions'
-  }
+  devise_for :users, controllers: {sessions: 'users/sessions'}
 
   devise_scope :user do
     get 'signout', to: 'devise/sessions#destroy', as: :signout
