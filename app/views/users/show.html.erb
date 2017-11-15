@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
- 
- <% content_for :title do %>
-    <title><%= "#{@user.last_name}" %> | Internship Program</title>
-<% end %>
-
+  <% content_for :title do %>
+    <title> <%= @user.last_name %> Profile| Internship Program</title>
+  <% end %>
 </head>
 <body>
+  <div class="container">
+  <div class="row">
+  
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Profile Information</a></li>
+    <li><a href="#tab2" data-toggle="tab">Report Section</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>
+        <ul style="list-style: circle;">
+          <li>Fullname: <%="#{@user.first_name} #{@user.last_name}" %></li><br>
+          <li>Email: <%= @user.email %></li><br>
+          <li>Tel: <%= @user.tel %></li><br>
+          <li>Id Number: <%= @user.id_number %></li><br>
+          <li>District: <%= @user.district %></li><br>
+          <li>Sector: <%= @user.sector %></li><br>
+          <li>Cell: <%= @user.cell %></li><br>
+          <li>College: <%= @user.college %></li><br>
+          <li>Field of studies: <%= @user.field_of_studies %></li>
+
+        </ul>
+      </p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>
+        <button style="background-color: #52F381;"><span class="fa fa-plus-circle"></span> <%= link_to "Create Report", new_survey_path%></button>
+        <ul>
+          <% @user.surveys.each_with_index do |survey| %>
+            <li><%= survey.name %></li>
+          <% end %>
+        </ul>
+
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+
 
 </body>
 </html>
