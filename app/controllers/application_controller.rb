@@ -28,8 +28,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    if user_signed_in?
+    if current_user && current_user.admin == true
       super
+    elsif current_user && current_user.admin == false
+      redirect_to user_path(current_user)
     else
       redirect_to welcome_path
       ## if you want render 404 page

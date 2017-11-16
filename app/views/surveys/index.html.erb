@@ -13,10 +13,6 @@
           <div class="col-md-12">
             <div class="col-md-8">
                 <h2><%= current_user.first_name%> <%= current_user.last_name%></h2>
-               
-                
-
-
             </div>            
             <div class="col-md-4 text-center">
                 <figure>
@@ -33,11 +29,7 @@
     <table class="table table-bordered" id="test">
         <thead>
             <tr><th>Survey Title</th>
-                <th>Show Action</th>
-                <th>Edit Action</th>
-                <th>Delete Action</th>
-               
-                
+                <th>Show Action</th>                        
             </tr>
         </thead>
         <tbody>
@@ -45,8 +37,8 @@
       <tr>
         <td><%= link_to survey.name, survey%></td>
         <td><%= link_to "Show", survey_path(survey) %></td>
-        <td><%= link_to "Edit", edit_survey_path(survey) %></td>
-        <td><%= link_to "Delete", "/surveys/#{survey.id}", method: :delete %></td>
+        <!-- <td><%#= link_to "Edit", edit_survey_path(survey) %></td>
+        <td><%#= link_to "Delete", "/surveys/#{survey.id}", method: :delete %></td> -->
       </tr>
       <% end %>
         </tbody>
