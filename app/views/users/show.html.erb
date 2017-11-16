@@ -26,7 +26,7 @@
           <li>Sector: <%= @user.sector %></li><br>
           <li>Cell: <%= @user.cell %></li><br>
           <li>College: <%= @user.college %></li><br>
-          <li>Field of studies: <%= @user.field_of_studies %></li>
+          <li>Field of Studies: <%= @user.field_of_studies %></li>
 
         </ul>
       </p>
@@ -35,7 +35,7 @@
       <p>
         <button style="background-color: #52F381;"><span class="fa fa-plus-circle"></span> <%= link_to "Create Report", new_survey_path%></button>
         <ul>
-          <% @user.surveys.each_with_index do |survey| %>
+          <% @user.surveys.each do |survey| %>
             <li><%= survey.name %></li>
           <% end %>
         </ul>

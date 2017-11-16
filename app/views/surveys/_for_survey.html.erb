@@ -23,8 +23,13 @@
       </ul>
     </div>
     <% end %>
+
      <h2 style="font-family: 'Playfair Display', serif; font-weight: bold;"><%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br></h2>
     <h4 style="font-family: 'Playfair Display', serif; font-weight: bold;"><%= f.text_field :name, value: "#{@survey.name = "MonthlyInternReport"}#{current_user.last_name}#{current_user.first_name}", class:"form-control", placeholder:"Survey Name . . ." %><br></h4>
+
+    <%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br>
+    <%= f.text_field :name, value: "#{@survey.name = "#{current_user.first_name}#{current_user.last_name}.#{Time.now.strftime("%B")}Report"}", class:"form-control", placeholder:"Survey Name . . ." %><br>
+
     <div>
       <ol id="questions">
         <% Question.all.each do |question| %>

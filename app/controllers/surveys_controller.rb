@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:index, :edit, :update, :destory]
   # http_basic_authenticate_with name: "Joseph Mugwaneza", password: "password"
   before_action :find_survey, :only => [:show, :edit, :update, :destory]
   before_action :find_user, :only => [:show, :edit, :update, :destory]
