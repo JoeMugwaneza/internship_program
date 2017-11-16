@@ -16,8 +16,11 @@
  */
 
 
+
 html body {
   font-family: 'Rozha One', serif;
+  background-image: url("http://needwoodconstruction.com/wp-content/uploads/2017/08/Great-Website-Background-Colours-Cute-Web-Page-Background-Color.jpg");
+  background-position: absolute;
 }
 
  /*btn icon back*/
