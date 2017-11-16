@@ -6,13 +6,13 @@
 <body class="signup">
 
   <section class="col-md-6 col-xs-10 col-md-offset-3 col-xs-offset-1">
-  <div class="main">  
+  <div class="mainss">  
     <div class="w3layouts_main agileinfo w3">   
     <h1 class="w3_agileits w3ls">Monthly Experience Survey</h1>
     </div>
   </div>
 
-    <%= form_for @survey do |f| %>
+  <%= form_for @survey do |f| %>
     <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
@@ -23,13 +23,13 @@
       </ul>
     </div>
     <% end %>
-    <%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br>
-    <%= f.text_field :name, value: "#{@survey.name = "MonthlyInternReport"}#{current_user.last_name}#{current_user.first_name}", class:"form-control", placeholder:"Survey Name . . ." %><br>
+     <h2 style="font-family: 'Playfair Display', serif; font-weight: bold;"><%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br></h2>
+    <h4 style="font-family: 'Playfair Display', serif; font-weight: bold;"><%= f.text_field :name, value: "#{@survey.name = "MonthlyInternReport"}#{current_user.last_name}#{current_user.first_name}", class:"form-control", placeholder:"Survey Name . . ." %><br></h4>
     <div>
-      <ol>
+      <ol id="questions">
         <% Question.all.each do |question| %>
         <li style="margin-top: 25px;">
-         <div style="font-size: 20px;font-weight: bold;">
+         <div style="font-size: 16px;font-weight: bold;">
           <%= question.title %><br>
          </div>
           <%= f.fields_for :answers do |field| %>
@@ -43,7 +43,7 @@
     </div>
 
 
-    <%= f.submit "Initiate Survey", class: "login-submit-btn" %>
+    <h2 style="font-family: 'Playfair Display', serif;"><%= f.submit "Initiate Survey", class: "login-submit-btn"%></h2>
     <% end %>
   </section>
 </body>
