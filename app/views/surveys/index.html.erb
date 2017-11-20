@@ -8,34 +8,18 @@
         <div class="col-md-12">
         <div class="well profile" id="agentbox">
           <div class="col-md-12">
-            <div class="col-md-8">
-                <h2><%= current_user.first_name%> <%= current_user.last_name%></h2>
-
-               
-                
-
-
-            </div>             
-
-            </div>            
+                <h2> <strong>Admin name</strong>: <%= current_user.first_name%> <%= current_user.last_name%></h2>            
+            </div>   
 
             <div class="col-md-4 text-center">
                 <figure>
                     <img src="" alt="" class="w3-circle">
-
                 </figure>
             </div>
         </div>            
-        <div class="col-xs-12 divider text-center">
-            <div class="col-xs-12 col-sm-4 emphasis">
-                <h2><strong></strong></h2>                    
-              
-                <button class="btn btn-success btn-block" style="background-color: #52F381;"><span class="fa fa-plus-circle"></span> <%= link_to "New Survey", new_survey_path%></button>
-            </div>
+      
       </div>
 <div class="row" id="admintable">
-
-    <h2 id="survey">Completed Surveys </h2>
     <table class="table table-bordered" id="test">
         <thead>
             <tr><th>Survey Title</th>

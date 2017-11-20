@@ -7,6 +7,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
+  <div class="profileMessage">
+    <p>
+      Hi <%= @user.last_name %> <br><br>
+      This is your profile, where you can manage your personal information as well as communicate with <strong>RYAF Administration</strong>. It will be our pleasure to hear from you anytime. Remember we are here for you, we need to hear from as much as possible so that we can enhance the services we provide. Therefore, your input is to share with us your experience, worries or just tell us how you are personally developing. 
+    </p><br>
+    <p>
+      <strong>PS</strong>: There is a <a href="<%= new_survey_path %>">survey</a> designed for at the beginning of each month that let us know you about internship you are taking. It should be details so we can have enough information and be able to help you throughout. However, the survey is monthly thing, in meanwhile you can reach out to us by clicking <em>Send Message to RYAF</em>. <br><br> <em>Please Scroll down to see your profile information</em>
+    </p>
+  </div><br>
 <div class="container">
   <div class="row">
   <ul id="accordion" class="accordion">
@@ -50,10 +59,9 @@
     <li class="default open">
       <div class="link"><i class="fa fa-globe"></i>About<i class="fa fa-chevron-down"></i></div>
       <ul class="submenu">
-        <li><a href="#"><i class="fa fa-calendar left-none"></i> Date of Birth : 03/09/1994</a></li>
-        <li><a href="#">Address : Rwanda, Kigali, Nyarugenge, Kimisagara, Mataba</a></li>
-        <li><a href="mailto:gurdeepjawaddi94@gmail.com">Email : janet@gmail.com</a></li>
-        <li><a href="#">Phone : +91 85680-79956</a></li>
+        <li><a href="#">Address : <%= "#{@user.district}, #{@user.sector}, #{@user.cell}" %></a></li>
+        <li><a href="mailto:gurdeepjawaddi94@gmail.com">Email : <%= @user.email %></a></li>
+        <li><a href="#">Phone : <%= @user.tel %></a></li>
       </ul>
     </li>
     <li class="default open">
