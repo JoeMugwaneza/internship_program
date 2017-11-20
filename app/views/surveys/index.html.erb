@@ -1,7 +1,4 @@
 
-  <% content_for :title do %>
-    <title>Survey Dashboard | Internship Program</title>
-  <% end %>
 
 <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -13,7 +10,15 @@
           <div class="col-md-12">
             <div class="col-md-8">
                 <h2><%= current_user.first_name%> <%= current_user.last_name%></h2>
+
+               
+                
+
+
+            </div>             
+
             </div>            
+
             <div class="col-md-4 text-center">
                 <figure>
                     <img src="" alt="" class="w3-circle">
@@ -22,6 +27,11 @@
             </div>
         </div>            
         <div class="col-xs-12 divider text-center">
+            <div class="col-xs-12 col-sm-4 emphasis">
+                <h2><strong></strong></h2>                    
+              
+                <button class="btn btn-success btn-block" style="background-color: #52F381;"><span class="fa fa-plus-circle"></span> <%= link_to "New Survey", new_survey_path%></button>
+            </div>
       </div>
 <div class="row" id="admintable">
 
@@ -49,19 +59,6 @@
 
 </div>
 </div>
-<script type="text/javascript">
-  $('#newSurvey').on({
-      mouseover: function(){
-        $(this).css('background-color', 'yellow');
-        $(this).css('color', '#fff')
-      }
-
-      mouseleave: function(){
-        $(this).css('background', '');
-        $(this).css('color', '');
-      }
-  });
-</script>
 
 
 

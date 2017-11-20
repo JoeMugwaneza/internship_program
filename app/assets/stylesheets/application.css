@@ -15,10 +15,14 @@
  *= require font-awesome
  */
 
+#questions{
 
+  font-color: black;
+  font-family: 'Playfair Display', serif;
+}
 
 html body {
-  font-family: 'Rozha One', serif;
+  font-family: 'Playfair Display', serif;
   background-image: url("http://needwoodconstruction.com/wp-content/uploads/2017/08/Great-Website-Background-Colours-Cute-Web-Page-Background-Color.jpg");
   background-position: absolute;
 }
@@ -137,7 +141,7 @@ html body {
   background-image: url(https://www.utexas.edu/sites/default/files/styles/utexas_hero_photo_image/public/hero-photos/commencement_2013_saturday_evening_37266.jpg?itok=mO4wdLKD);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Rozha One', serif;
+ font-family: 'Playfair Display', serif; font-weight: bold;">
 }
 
 .home-caption {
@@ -231,16 +235,18 @@ table{border-collapse:collapse;border-spacing:0;}
 
 .w3layouts_main h1{
   text-align: center;
-    color: white;
+    color: black;
     font-size: 2em;
     margin: 1em 0 .5em;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
+    font-family: 'Playfair Display', serif;
 }
 
 .signup form.agileits_w3layouts_form {
     padding: 0 4em;
+    font-family: 'Playfair Display', serif;
 }
 
 
