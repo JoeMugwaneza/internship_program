@@ -33,15 +33,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="<%= root_url %>">RYAF</a>
+      <a class="navbar-brand" href="<%= root_url %>">Home</a>
+      <% if current_user &&  current_user.admin == true %>
+        <a class="navbar-brand" href="/admin">Admin</a>
+        <a class="navbar-brand" href="<%= users_path %>">Users</a>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <!-- <ul class="nav navbar-nav">
+<!--    
+      <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">Page 1</a></li>
         <li><a href="#">Page 2</a></li> 
         <li><a href="#">Page 3</a></li> 
       </ul> -->
+      
 
 
       
