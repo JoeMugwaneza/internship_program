@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starting_at: 2017-11-27 15:06:14
+  chain_value_id: 1
+  completed: false
+  user: one
+
+two:
+  starting_at: 2017-11-27 15:06:14
+  chain_value_id: 1
+  completed: false
+  user: two
