@@ -55,7 +55,7 @@ class User < ApplicationRecord
   rails_admin do
     # configure :reset_password
     list do
-      include_fields :first_name, :last_name, :email, :admin, :id_number, :district, :sector, :cell, :tel, :college, :field_of_studies, :is_female
+      include_fields :first_name, :last_name, :email, :admin, :id_number, :district, :sector, :bank_name, :tel, :bank_number, :field_of_studies, :is_female, :internship_placement
     end
     edit do
       exclude_fields :id, :encrypted_password, :created_at, :updated_at, :remember_created_at, :sign_in_count , :current_sign_in_at, :reset_password_token, :reset_password_sent_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip

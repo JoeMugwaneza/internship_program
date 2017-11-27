@@ -1,35 +1,105 @@
-<% content_for :title do %>
-    <title>Welcome | Internship Program</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <% content_for :title do %>
+    <title>Welcome to Internship System</title>
 <% end %>
 
-<style type="text/css">
-  .mynavbar {
-    display: none;
-  }
-</style>
+  <style type="text/css">
+    .mynavbar {
+      display: none;
+    }
+  </style>
 
-<body class="home-back">
+</head>
+<body>
+  <!-- Header element -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#RYAF">Program</a></li>
+        <li><a href="#Instruction">Instruction</a></li>
+        <li><a href="#ContactUs"> Contact us</a></li>
+      </ul>
+    </nav>
 
- <nav class="navbar">
-  <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-right">
-    <% if current_user.nil? %>
-      <li><a href="users/sign_up" class="btn btn-sm btn-default hvr-outline-in">Sign Up</a></li>
-      <li><a href="users/sign_in" class="btn btn-sm btn-default hvr-outline-in">Sign In</a></li>
-    <% end %>
+  </header>
+  <!-- Header end here -->
+  <main>
+  <!-- all other part have to be included in main tag -->
+    <section id="RYAF" class="programIntroduction">
+    <!-- Welcome to the system notes -->
+      <figure>
+      <!-- I will include carousell-->
+        <img src="">
+        <figcaption><!--this will be image caption--></figcaption>
+      </figure>
+      <p>
+        <strong>Welcome to RYAF Internship System</strong>. <br>RYAF Internship Program is a web based application designed to help Graduates from agriculture field studies to get internship opportunities very easily on the partnership with <a href="http://cesb.gov.rw/home/" target="_blank">CESB</a>. With this program, we record an applicant personal information so as to be used during internship placement and further check-ins. 
+      </p>
+
+    </section>
+    <!-- This is a section for instruction of how to use RYAF Internship system -->
+    <section id="Instruction">
+      <p>
+        RYAF works closely with CEBS (Capacity Development and Employment Board) and we are only concerned with the applicants who have completed CEBS <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">registration form</a>, or willing to complete the <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">form</a> as soon as possible. 
+      </p>
+      <p class="tipsOfSystem">
+        <ol>
+          <li>
+            You will not get internship placement when you are not in CEBS database
+          </li>
+          <li>
+            You will need to fill in two registration form before being a concern of RYAF
+            <ul>
+              
+              CEBS registraction form
+            </li>
+            <li>
+              RYAF Internship application form <em>the link to the form can be found below</em>
+            </li>
+            </ul>
+          </li>
+        </ol>
+      </p>
+    </section>
+  </main>
+  <aside>
+    <p>
+      We are concerned with issues of internship in agriculture field. Working with us grant an placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
+    </p>
+    <p>
+      
+    </p>
+  </aside>
+
+  <h4>Contact Form</h4>
+  <summary id="ContactUs">
+    <form>
+      <fieldset>
+        <legend>Contact Admin in case you need a help</legend>
+        <label>Full Name: </label>
+          <input type="name" name="fname" placeholder="Eg. Joseph Mugwaneza" required="required"><br>
+        <label>Telephone:</label>
+          <input type="numeric" name="telephone" placeholder="eg. 0780000000 " required><br>
+        <label>Email Address: </label>
+          <input type="email" name="emailAddress" placeholder="Eg. mugwaneza@ryaf.rw"><br>
+        <label>Message</label><br>
+        <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea><br>
+    
+      </fieldset>
+
+      <input type="submit" value="Message">
+    </form>
+  </summary>
+<!-- this is the part designed for footer -->
+  <footer>
+    <ul>
+      <li><a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Apply to CESB</a></li>
+      <li><a href="#">RYAF Official Website</a></li>
+      <li><a href="#">Internship System Signup</a></li>
     </ul>
-  </div>
-</nav> 
+  </footer>
 
-<section class="row home" align="center" style="vertical-align: middle;">
-  <div class="col-md-8 col-md-offset-2">        
-    <div class="home-caption">
-      <h2>Are you a university Graduate in Agriculture-related Major, and looking for an internship?</h2>
-      <h3>RYAF (Rwanda Youth in AGribusiness Forum) will help you get one</h3>
-    </div>
-    <div align="center" style="margin-top: 10px;">
-      <a href="users/sign_up" class="btn btn-default btn-lg hvr-icon-forward">Get Started</a>
-    </div>
-  </div>
-</section>
 </body>
+</html>
