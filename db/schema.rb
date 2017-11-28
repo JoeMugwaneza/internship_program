@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128155125) do
+ActiveRecord::Schema.define(version: 20171128215545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20171128155125) do
     t.datetime "updated_at", null: false
     t.integer "survey_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "chain_values", force: :cascade do |t|
@@ -41,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171128155125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "stipend_amount", precision: 7, scale: 2
+    t.integer "chain_value_id"
   end
 
   create_table "field_of_studies", force: :cascade do |t|
@@ -82,10 +89,8 @@ ActiveRecord::Schema.define(version: 20171128155125) do
     t.string "id_number"
     t.string "district"
     t.string "sector"
-    t.string "bank_name"
-    t.string "tel"
+    t.string "phone_number"
     t.string "bank_number"
-    t.string "field_of_studies"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -99,6 +104,8 @@ ActiveRecord::Schema.define(version: 20171128155125) do
     t.boolean "is_female"
     t.boolean "admin", default: false
     t.boolean "internship_placement", default: false
+    t.integer "bank_id"
+    t.integer "field_of_study_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

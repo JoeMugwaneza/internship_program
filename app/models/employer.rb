@@ -1,3 +1,3 @@
 class Employer < ApplicationRecord
-  has_one :field_of_study
+  has_many: field_of_study
 end
