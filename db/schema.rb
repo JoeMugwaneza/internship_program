@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127131659) do
+ActiveRecord::Schema.define(version: 20171128155125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(version: 20171127131659) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "employers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "company_name"
+    t.string "company_website"
+    t.datetime "available_at"
+    t.integer "number_of_interns"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "stipend_amount", precision: 7, scale: 2
+  end
+
+  create_table "field_of_studies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "internship_updates", force: :cascade do |t|
     t.datetime "starting_at"
     t.integer "chain_value_id"
@@ -37,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171127131659) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "employer_id"
     t.index ["user_id"], name: "index_internship_updates_on_user_id"
   end
 

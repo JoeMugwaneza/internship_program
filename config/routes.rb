@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers
   resources :users, :only => [:index, :show]
+  resources :employer_requests, :cotnroller => 'employers'
 
   # designs
   get "/signup" => "pages#signup"
