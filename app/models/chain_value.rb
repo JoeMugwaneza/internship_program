@@ -1,3 +1,3 @@
 class ChainValue < ApplicationRecord
-  belongs_to :internshp_value
+  has_one :internship_update
 end

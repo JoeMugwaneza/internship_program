@@ -1,4 +1,4 @@
 class InternshipUpdate < ApplicationRecord
   belongs_to :user
-  has_one :chain_value
+  belongs_to :chain_value
 end

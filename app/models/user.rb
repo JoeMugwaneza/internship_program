@@ -13,11 +13,9 @@ class User < ApplicationRecord
   validates :first_name, presence: {message: "must be filled"}
   validates :last_name, presence: {message: "must be filled"}
   validates :id_number, numericality: {message: "will have to be 16"}
-  validates :college, presence: {message: "must be filled"}
   validates :field_of_studies, presence: {message: "must be filled"}
   validates :district, presence: {message: "must be filled"}
   validates :sector, presence: {message: "must be filled"}
-  validates :cell, presence: {message: "must be filled"}
   validates :tel, presence: {message: "must be filled"}
 
   def login=(login)

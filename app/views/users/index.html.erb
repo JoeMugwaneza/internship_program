@@ -26,10 +26,10 @@
                 <th>Id Number</th>
                 <th>Telephone</th>
                 <th>Gender</th>
-                <th>College</th>
                 <th>Field of Studies</th>
                 <th>District</th>
                 <th>Sector</th>
+                <th>Internship Placement</th>
               
               </tr>
             </thead>
@@ -42,10 +42,14 @@
                 <td><%= user.id_number %></td>
                 <td><%= user.tel %></td>
                 <td><%= user.gender %></td>
-                <td><%= user.college %></td>
                 <td><%= user.field_of_studies %></td>
                 <td><%= user.district %></td>
                 <td><%= user.sector %></td>
+                <% if user.internship_placement == false %>
+                <td><a href="/users?internship_placement=<%= user.id %>"><%= user.internship_placement %></a></td>
+                <% else user.internship_placement %>
+                <td><%= user.internship_placement %></td>
+                <% end %>
               </tr>
             <% end %>
             </tbody>
