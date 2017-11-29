@@ -4,6 +4,10 @@ class EmployersController < ApplicationController
   def index
     @employers = Employer.all
   end
+
+  def show
+    set_employer
+  end
   
   def new
     @employer = Employer.new
@@ -13,7 +17,7 @@ class EmployersController < ApplicationController
     @employer = Employer.new(params_employer)
 
     if @employer.save
-      redirect_to employer_path(@employer)
+      redirect_to edit_employer_path(@employer)
     else
       render :new
     end
@@ -21,11 +25,15 @@ class EmployersController < ApplicationController
 
   def update
     if @employer.update(params_employer)
-      redirect_to employer_path(@employer)
+      redirect_to employer_congratulations_path(@employer)
     else 
       render :edit
     end
 
+  end
+
+  def congratulations
+    
   end
 
 private

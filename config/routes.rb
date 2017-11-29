@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get "/welcome" => "pages#welcome", as: "welcome"
   get "/signup2" =>"pages#signup2"
   get '/dashboards' => "dashboards#index"
+
+  get '/employers/:id/well_done' => "employers#congratulations", as: "employer_congratulations"
 end
 
 
