@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+ <%= form_for @employer, url: new_employer_request_path do |f| %>
+   <fieldset>
+     <legend>Personal Information</legend>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      <%= f.label :phone_number %>
+      <%= f.text_field :phone_number %>
+   </fieldset><br>
+   <fieldset>
+     <legend>Company Information</legend>
+     <%= f.label :company_name %>
+     <%= f.text_field :company_name %>
+     <%= f.label :company_website %>
+     <%= f.text_field :company_website %>
+     <%= f.label :available_at, "Best time to reach you"%>
+     <%= f.datetime_local_field :available_at %>
+   </fieldset><br>
+
+   <fieldset>
+     <legend>Company Request</legend>
+     <%= f.label :number_of_interns, "Number of interns requested"%>
+     <%= f.number_field :number_of_interns %><br>
+
+     <%= f.collection_check_boxes :employer_field_ids, FieldOfStudy.order(:name), :id, :name, {}, {multiple: true, class: "chosen-select align-checkbox"} %><br>
+     
+     <%= f.label :stipend_amount, "Estimated rate of stipend amount (RWF)" %>
+     <%= f.number_field :stipend_amount, class: :text_field, step: :any %>
+   </fieldset>
+
+ <% end %>
+</body>
+</html>

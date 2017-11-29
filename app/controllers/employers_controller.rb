@@ -11,7 +11,7 @@ class EmployersController < ApplicationController
     @employer = Employer.new(params_employer)
 
     if @employer.save
-      redirect_to employer_path(@employer)
+      redirect_to edit_employer_request_path(@employer)
     else
       render :new
     end
@@ -20,6 +20,6 @@ class EmployersController < ApplicationController
 private
 
   def params_employer
-    params.require(:employer).permit(:first_name, :last_name, :phone_number, :company_name, :company_website, :available_at, :number_of_interns, :stipend_amount)
+    params.require(:employer).permit(:first_name, :last_name, :phone_number, :company_name, :company_website, :available_at, :number_of_interns, :stipend_amount, :chain_value_id, employer_field_ids: [])
   end
 end

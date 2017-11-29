@@ -1,4 +1,5 @@
 class FieldOfStudy < ApplicationRecord
-  belongs_to :employer
-  belongs_to :user
+  has_many :users
+  has_many :employer_fields
+  has_many :employers, through: :employer_fields
 end

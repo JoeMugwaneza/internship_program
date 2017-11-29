@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :surveys, :dependent => :destroy
   has_many :answers, through: :surveys
   has_one :internship_update
-  has_one :field_of_study
-  has_one :bank
+  belongs_to :field_of_study
+  belongs_to :bank
   
   attr_accessor :login
 

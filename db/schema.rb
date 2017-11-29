@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128215545) do
+ActiveRecord::Schema.define(version: 20171129061006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20171128215545) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "employer_fields", force: :cascade do |t|
+    t.bigint "employer_id"
+    t.bigint "field_of_study_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employer_id"], name: "index_employer_fields_on_employer_id"
+    t.index ["field_of_study_id"], name: "index_employer_fields_on_field_of_study_id"
   end
 
   create_table "employers", force: :cascade do |t|
@@ -111,6 +120,8 @@ ActiveRecord::Schema.define(version: 20171128215545) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "employer_fields", "employers"
+  add_foreign_key "employer_fields", "field_of_studies"
   add_foreign_key "internship_updates", "users"
   add_foreign_key "surveys", "users"
 end
