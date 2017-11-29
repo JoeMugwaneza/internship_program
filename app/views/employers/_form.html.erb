@@ -47,21 +47,11 @@
      <%= f.label :choose_from_these_available_field_of_studies %><br>
 
      <%= f.collection_check_boxes(:field_of_study_ids, FieldOfStudy.all, :id, :name) do |b| %>
-
           <%= b.label class: "col-sm-4" do %>
           <%=b.check_box + b.text%>
         <%end%>
      <% end %>
 
-     <div>
-        <%#= f.collection_check_boxes (:employer_field_ids, FieldOfStudy.all, :id, :name) do |b|%>
-          <%#= b.label class: "label-checkbox" do%>
-              <%#= b.check_box + b.text %>
-            <%#end %>
-        <%# end %>
-      </div>
-
-     
    </fieldset><br>
    <fieldset>
      <legend>Summarize specific requirement or qualification for the intern.</legend>

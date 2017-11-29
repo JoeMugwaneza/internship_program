@@ -15,3 +15,26 @@
  *= require font-awesome
  */
 
+
+.programIntroduction {
+  background-image: url(http://wallpaper.pickywallpapers.com/1680x1050/small-workplace-with-apple-gadgets.jpg);
+
+}
+.introduction-content {
+  height: 550px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  display: table;
+}
+
+.introduction-content div {
+  display: table-cell;
+  vertical-align: middle;
+  /*text-align: justify;*/
+}
+
+/*.programIntroduction h1 {
+  padding-bottom: 20px;
+  border-bottom: 1px solid white;
+  text-align: center;
+}*/

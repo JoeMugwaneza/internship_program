@@ -2,14 +2,14 @@
 <html>
 <head>
   <% content_for :title do %>
-    <title>Welcome to Internship System</title>
-<% end %>
+  <title>Welcome to Internship System</title>
+  <% end %>
 
   <style type="text/css">
-    .mynavbar {
-      display: none;
-    }
-  </style>
+  .mynavbar {
+    display: none;
+  }
+</style>
 
 </head>
 <body >
@@ -26,17 +26,24 @@
   </header>
   <!-- Header end here -->
   <main>
-  <!-- all other part have to be included in main tag -->
+    <!-- all other part have to be included in main tag -->
     <section id="RYAF" class="programIntroduction">
-    <!-- Welcome to the system notes -->
+      <div class="introduction-content">
+        
+      <!-- Welcome to the system notes -->
       <figure>
-      <!-- I will include carousell-->
+        <!-- I will include carousell-->
         <img src="">
         <figcaption><!--this will be image caption--></figcaption>
       </figure>
-      <p>
-        <strong>Welcome to RYAF Internship System</strong>. <br>RYAF Internship Program is a web based application designed to help Graduates from agriculture field studies to get internship opportunities very easily on the partnership with <a href="http://cesb.gov.rw/home/" target="_blank">CESB</a>. With this program, we record an applicant personal information so as to be used during internship placement and further check-ins. 
-      </p>
+      <div>
+
+        <h1><strong>Welcome to RYAF Internship System</strong></h1> 
+
+        <h1>RYAF Internship Program is a web based application designed to help Graduates from agriculture field studies to get internship opportunities very easily on the partnership with <a href="http://cesb.gov.rw/home/" target="_blank">CESB</a>. With this program, we record an applicant personal information so as to be used during internship placement and further check-ins. 
+        </h1>
+      </div>
+      </div>
 
     </section>
     <!-- This is a section for instruction of how to use RYAF Internship system -->
@@ -59,45 +66,45 @@
                 RYAF Internship application form <em>the link to the form can be found below</em>
               </li>
             </ul>
-        </ol>
+          </ol>
+        </p>
+      </section>
+    </main>
+    <aside>
+      <p>
+        We are concerned with issues of internship in agriculture field. Working with us grant an placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
       </p>
-    </section>
-  </main>
-  <aside>
-    <p>
-      We are concerned with issues of internship in agriculture field. Working with us grant an placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
-    </p>
-    <p>
-      
-    </p>
-  </aside>
+      <p>
 
-  <h4>Contact Form</h4>
-  <summary id="ContactUs">
-    <form>
-      <fieldset>
-        <label>Full Name: </label>
+      </p>
+    </aside>
+
+    <h4>Contact Form</h4>
+    <summary id="ContactUs">
+      <form>
+        <fieldset>
+          <label>Full Name: </label>
           <input type="name" name="fname" placeholder="Eg. Joseph Mugwaneza" required="required"><br>
-        <label>Telephone:</label>
+          <label>Telephone:</label>
           <input type="numeric" name="telephone" placeholder="eg. 0780000000 " required><br>
-        <label>Email Address: </label>
+          <label>Email Address: </label>
           <input type="email" name="emailAddress" placeholder="Eg. mugwaneza@ryaf.rw"><br>
-        <label>Message</label><br>
-        <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea><br>
-    
-      </fieldset>
+          <label>Message</label><br>
+          <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea><br>
 
-      <input type="submit" value="Message">
-    </form>
-  </summary>
-<!-- this is the part designed for footer -->
-  <footer>
-    <ul>
-      <li><a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Apply to CESB</a></li>
-      <li><a href="#">RYAF Official Website</a></li>
-      <li><a href="#">Internship System Signup</a></li>
-    </ul>
-  </footer>
+        </fieldset>
 
-</body>
-</html>
+        <input type="submit" value="Message">
+      </form>
+    </summary>
+    <!-- this is the part designed for footer -->
+    <footer>
+      <ul>
+        <li><a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Apply to CESB</a></li>
+        <li><a href="#">RYAF Official Website</a></li>
+        <li><a href="#">Internship System Signup</a></li>
+      </ul>
+    </footer>
+
+  </body>
+  </html>
