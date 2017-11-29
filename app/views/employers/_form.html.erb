@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <article>
+    <p>
+      Thank you for expressing interest for hiring interns, form whom you will benefit for the talent, energy and enthusiasm to develop your future workforce, through RYAF you will be able to hire the right persons who fit the position. Please fill out this application by Wednesday, December, 15, 2017.  You will be informed of whether you have been accepted or not by …….. 2017. 
+      </p>
+      <p>
+      If you are accepted to hire interns you will be able to provide for them some stipend amount of transport. If you have any question, please contact the RYAF-ICT department on + 250783017178 or send an email at kayitare1203@gmail.com.
+    </p>
+  </article>
+
+ <%= form_for @employer do |f| %>
+   <fieldset>
+     <legend>Employer Information</legend>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+      <%= f.label :phone_number %>
+      <%= f.telephone_field :phone_number %>
+   </fieldset><br>
+   <fieldset>
+     <legend>Company Information</legend>
+     <%= f.label :company_name %>
+     <%= f.text_field :company_name %>
+     <%= f.label :company_website %>
+     <%= f.url_field :company_website %>
+     <%= f.label :chain_value %>
+     <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
+
+     <%= f.label :available_at, "Best time to reach you"%>
+     <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
+   </fieldset><br>
+
+   <fieldset>
+     <legend>Company Request</legend>
+     <%= f.label :number_of_interns, "Number of interns requested"%>
+     <%= f.number_field :number_of_interns %>
+
+     <%= f.label :stipend_amount, "Estimated rate of stipend amount (RWF)" %>
+     <%= f.number_field :stipend_amount, class: :text_field, step: :any %><br><br>
+
+     <%= f.label :choose_from_these_available_field_of_studies %><br>
+
+     <%= f.collection_check_boxes(:field_of_study_ids, FieldOfStudy.all, :id, :name) do |b| %>
+          <%= b.label class: "col-sm-4" do %>
+          <%=b.check_box + b.text%>
+        <%end%>
+     <% end %>
+
+   </fieldset><br>
+   <fieldset>
+     <legend>Summarize specific requirement or qualification for the intern.</legend>
+       <p>In case you want interns from different field of studies, please specific the number for each field of study of your choice. <em>Eg. Agribusiness, I need 2 interns and 2 soil science</em> </p>
+       
+       <%= f.label :request_summary%><br>
+       <%= f.text_area(:summary, cols: 120, rows: 10, placeholder: "Please use this space for additional information you would like us to know") %>
+   </fieldset>
+
+   <%= f.submit "Create Intern Request" %>
+
+ <% end %>
+</body>
+</html>

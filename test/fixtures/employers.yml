@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  company_name: MyString
+  company_website: MyString
+  available_at: 2017-11-28 17:42:00
+  number_of_interns: 1
+  stipend_amount: 
+
+two:
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  company_name: MyString
+  company_website: MyString
+  available_at: 2017-11-28 17:42:00
+  number_of_interns: 1
+  stipend_amount: 
