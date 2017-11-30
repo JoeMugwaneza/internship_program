@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :surveys, :dependent => :destroy
   has_many :answers, through: :surveys
-  has_one :internship_update
+  has_one :internship_update, :dependent => :destroy
   belongs_to :field_of_study
   belongs_to :bank
   

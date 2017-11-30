@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129153216) do
+ActiveRecord::Schema.define(version: 20171130074547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20171129153216) do
     t.decimal "stipend_amount", precision: 7, scale: 2
     t.integer "chain_value_id"
     t.text "summary"
+    t.string "email"
+    t.string "district"
+    t.string "sector"
   end
 
   create_table "field_of_studies", force: :cascade do |t|

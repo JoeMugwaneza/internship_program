@@ -3,4 +3,6 @@ class Employer < ApplicationRecord
   
   has_many :employer_fields
   has_many :field_of_studies, through: :employer_fields
+
+  
 end

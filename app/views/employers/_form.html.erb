@@ -28,12 +28,21 @@
      <%= f.label :company_name %>
      <%= f.text_field :company_name %>
      <%= f.label :company_website %>
-     <%= f.url_field :company_website %>
+     <%= f.text_field :company_website %>
      <%= f.label :chain_value %>
      <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
 
      <%= f.label :available_at, "Best time to reach you"%>
      <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
+   </fieldset><br>
+
+   <fieldset>
+     <legend>Company Location</legend>
+     <%= f.label :district %>
+     <%= f.text_field :district %>
+     <%= f.label :sector %>
+     <%= f.text_field :sector %>
+     
    </fieldset><br>
 
    <fieldset>

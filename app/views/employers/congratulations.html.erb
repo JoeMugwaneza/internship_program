@@ -6,6 +6,47 @@
 <% end %>
 </head>
 <body>
+  <main>
+   <article>
+     <h3>Congratulations <%= @employer.first_name %>,</h3>
+     <p> You have successfully requested <%= @employer.number_of_interns %> interns from RYAF in <%= @employer.field_of_studies.count%> field of studies.
+      <ol>
+        <% @employer.field_of_studies.each do |field_of_study| %>
+        <li>
+          <%= field_of_study.name %>
+        </li>
+      <% end %>
+      </ol>
+
+     </p>
+     <section>
+       <h2>RYAF Wish</h2>
+       <p>
+          We are very delighted to help you getting the interns with qualities and requirements you are looking for. The process of selecting the best candidate will take less than 5 working days. However, in meanwhile, RYAF adminstration would like to tell you that in order for the interns to be more productive and committed towards your goals and mission, it is always important to show them that you value the work and contribution they are making. Therefore, that is the reason why we included the part of stipend as value or appreciation of what they will do for you. That money should include transport or lunch during the time of work.
+        </p>
+        <p>
+          However, <strong>This is not mandatory, it is just <em>RYAF wish</em> in order to increase intern participation, motivation and productivity.</strong> 
+       </p>
+     </section>
+
+     <details>
+       <summary>Here is the address we will use to reach out to you</summary>
+       <div>
+         <p>
+           Full Name: <%= "#{@employer.first_name} #{@employer.last_name}" %><br>
+           Phone Number: <%= @employer.phone_number %><br>
+           Company Name: <%= @employer.company_name %><br>
+           Email Address: <%= @employer.email %><br>
+           District: <%= @employer.district %><br>
+           Sector: <%= @employer.sector %><br>
+           Company Website: <%= @employer.company_website %>
+         </p>
+        <em>If information displayed above seem to be missing or contains some errors please <a href="<%= edit_employer_path(@employer) %>">clear here to edit</a></em>
+       </div>
+     </details>
+  
+   </article>
+  </main>
 
 </body>
 </html>
