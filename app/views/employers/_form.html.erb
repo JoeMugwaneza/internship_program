@@ -31,7 +31,7 @@
      <%= f.email_field :email %>
      <%= f.label :company_website %>
      <%= f.text_field :company_website %>
-     <%= f.label :chain_value %>
+     <%= f.label :value_chain %>
      <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
 
      <%= f.label :available_at, "Best time to reach you"%>

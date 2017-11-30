@@ -8,48 +8,23 @@
     <% end %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="#">
-    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">  
+    <link rel="icon" href="#"> 
 
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
-
   </head>
 
   <body>
-
-
-
-<nav class="navbar navbar-default mynavbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="<%= root_url %>">Home</a>
+    <div class="navbar-pages">
+      
+      <a class="navbar-brand" href="<%= root_url %>">RYAF Internship System</a>
       <% if current_user &&  current_user.admin == true %>
         <a class="navbar-brand" href="/admin">Admin</a>
         <a class="navbar-brand" href="<%= users_path %>">Users</a>
       <% end %>
-    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-<!--    
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li> 
-        <li><a href="#">Page 3</a></li> 
-      </ul> -->
-      
-
-
       
       <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
@@ -58,14 +33,11 @@
         <li><a href="<%new_user_session_path%>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <% end %>
       </ul>
+    </div> 
     </div>
-  </div>
-</nav>   
 
 
   
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
 
     <%= yield %>
   </body>

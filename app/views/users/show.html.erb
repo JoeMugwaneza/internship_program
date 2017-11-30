@@ -2,19 +2,40 @@
 <html>
 <head>
   <% content_for :title do %>
-    <title> <%= @user.last_name %> Profile| Internship Program</title>
+    <title> <%= full_name %>| Internship Program</title>
   <% end %>
 </head>
+
 <body>
-  <div class="profileMessage">
-    <p>
-      Hi <%= full_name %> <br><br>
-      This is your profile, where you can manage your personal information as well as communicate with <strong>RYAF Administration</strong>. It will be our pleasure to hear from you anytime. Remember we are here for you, we need to hear from as much as possible so that we can enhance the services we provide. Therefore, your input is to share with us your experience, worries or just tell us how you are personally developing. 
-    </p><br>
-    <p>
-      <strong>PS</strong>: There is a <a href="<%= new_survey_path %>">survey</a> designed for at the beginning of each month that let us know you about internship you are taking. It should be details so we can have enough information and be able to help you throughout. However, the survey is monthly thing, in meanwhile you can reach out to us by clicking <em>Send Message to RYAF</em>. <br><br> <em>Please Scroll down to see your profile information</em>
-    </p>
-  </div>
+  <% if @user.application.nil? %>
+    <section>
+      <div>
+        <h4>Hello <%= @user.last_name %></h4>
+        <p>
+          Thank you very much for making it to <strong>RYAF Internship System</strong>. The first step towards getting internship is completed; you are remaining with only <em>final stage of application</em> and next work will be handled by RYAF internship program team.
+        </p>
+          <h4>Reminder</h4>
+        <p>
+          As you should have heard or read on welcome page of this system, RYAF internship program partner with CESB ( Capacity Development and Employment Services Board), which means, we only work with graduates who are registred in CEBS database. Thus, if you have not registered there yet, you should <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">click here</a> and register first before completing the last stage of our application. The reason for that is, we can't serve you unless you are in CESB database. 
+        </p>
+
+      </div>
+
+      <div>
+        <p>
+          Then <%= @user.last_name %>,  <span class="glyphicon glyphicon-hand-right"> here you are.</span>
+        </p>
+        <a href="<%= new_application_path %>">Get started with application</a>
+      </div>
+    </section>
+  <% else %>
+    <section>
+
+      
+      
+    </section>
+  <% end %>
+
 </body>
 </html>
 
