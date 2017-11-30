@@ -26,7 +26,7 @@
 
      <h2 style="font-family: 'Playfair Display', serif; font-weight: bold;"><%= f.label :survey_name, "Survey Name( Don't change Survey Name)" %><br></h2>
    
-    <%= f.text_field :name, value: "#{@survey.name = "#{current_user.first_name}#{current_user.last_name}.#{Time.now.strftime("%B")}Report"}", class:"form-control", placeholder:"Survey Name . . ." %><br>
+    <%= f.text_field :name, value: "#{@survey.name = "#{current_user.first_name}#{current_user.last_name}.#{Time.now.strftime("%B")}Report"}", class:"form-control", readonly: "readonly"%><br>
 
     <div>
       <ol id="questions">

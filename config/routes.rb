@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :users, :only => [:index, :show]
   resources :employers
+  resources :applications
 
   # designs
   get "/signup" => "pages#signup"

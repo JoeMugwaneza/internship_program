@@ -1,6 +1,10 @@
 class Application < ApplicationRecord
   belongs_to :user
 
+  belongs_to :bank
+  belongs_to :field_of_study
+
+
   
 
   def gender
