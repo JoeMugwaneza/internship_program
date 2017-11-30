@@ -40,7 +40,7 @@ class EmployersController < ApplicationController
 private
 
   def params_employer
-    params.require(:employer).permit(:first_name, :last_name, :phone_number, :company_name, :company_website, :available_at, :number_of_interns, :stipend_amount, :chain_value_id, :district, :sector, :summary, :field_of_study_ids => [])
+    params.require(:employer).permit(:first_name, :last_name, :phone_number, :company_name, :company_website, :available_at, :number_of_interns, :stipend_amount, :chain_value_id, :district, :sector, :email, :summary, :field_of_study_ids => [])
   end
 
   def set_employer

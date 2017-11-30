@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130074547) do
+ActiveRecord::Schema.define(version: 20171130095050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 20171130074547) do
     t.datetime "updated_at", null: false
     t.integer "survey_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.string "id_number"
+    t.string "district"
+    t.string "sector"
+    t.string "phone_number"
+    t.integer "bank_id"
+    t.string "bank_number"
+    t.boolean "is_female"
+    t.boolean "internship_placement", default: false
+    t.integer "field_of_study_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
   create_table "banks", force: :cascade do |t|
@@ -99,11 +115,6 @@ ActiveRecord::Schema.define(version: 20171130074547) do
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "id_number"
-    t.string "district"
-    t.string "sector"
-    t.string "phone_number"
-    t.string "bank_number"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -114,16 +125,14 @@ ActiveRecord::Schema.define(version: 20171130074547) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_female"
     t.boolean "admin", default: false
-    t.boolean "internship_placement", default: false
-    t.integer "bank_id"
-    t.integer "field_of_study_id"
+    t.string "id_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "applications", "users"
   add_foreign_key "employer_fields", "employers"
   add_foreign_key "employer_fields", "field_of_studies"
   add_foreign_key "internship_updates", "users"
