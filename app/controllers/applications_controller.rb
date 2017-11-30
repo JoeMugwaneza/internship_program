@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :set_application, :only => [:show, :edit, :update]
+  before_action :set_application, :only => [:new, :create, :show, :edit, :update]
 
   def index
     @applications = Application.all
@@ -10,7 +10,7 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    @application = current_user.Applicaton.build(params_application)
+    @application = current_user.create_application(params_application)
 
     if @application.save
       redirect_to edit_application_path(@application)
@@ -34,7 +34,7 @@ class ApplicationsController < ApplicationController
   end
 
   def set_application
-    @user = User.find(params[:id])
+    @user = current_user
     @application = @user.application
   end
 end
