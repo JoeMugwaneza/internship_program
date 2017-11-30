@@ -26,59 +26,18 @@
 
     <div class="row">     
       <div class="field col-md-4">
-        <%= f.text_field :first_name, autocomplete: "off", class:"form-control", placeholder:"First Name..." %>
+        <%= f.text_field :first_name, autocomplete: "off", class:"form-control", placeholder:"First Name...", required: "required" %>
       </div>
 
       <div class="field col-md-4">
-        <%= f.text_field :last_name, autocomplete: "off", class:"form-control", placeholder:"Last Name..." %>
+        <%= f.text_field :last_name, autocomplete: "off", class:"form-control", placeholder:"Last Name...", required: "required"%>
       </div>
       <div class="field col-md-4">
-        <%= f.text_field :id_number, autocomplete: "off", class:"form-control", placeholder:"ID No..." %>
+        <%= f.number_field :id_number, autocomplete: "off", class:"form-control", placeholder:"ID No...", required: "required" %>
       </div>
     </div>
 
     <div class="row">    
-    <div class="field col-md-4">
-      <%= f.text_field :district, autocomplete: "off", class:"form-control", placeholder:"District..." %>
-    </div>
-
-    <div class="field col-md-4">
-      <%= f.text_field :sector, autocomplete: "off", class:"form-control", placeholder:"Sector..." %>
-    </div>
-
-    <div class="field col-md-4">
-      <%= f.text_field :cell, autocomplete: "off", class:"form-control", placeholder:"Cell..." %>
-    </div>
-  </div>
-
-
-    <div class="row">
-     <div class="field">
-      <div class="col-md-6">
-        <%= f.radio_button :is_female, true %> <%= f.label :is_female, "Female" %><br/>        
-      </div>
-      <div class="col-md-6">
-        <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">    
-    <div class="field col-md-6">
-      <%= f.text_field :bank_name, autocomplete: "off", class:"form-control", placeholder:"Enter Bank name..." %>
-    </div>
-
-    <div class="field col-md-6">
-      <%= f.text_field :field_of_studies, autocomplete: "off", class:"form-control", placeholder:"Faculty/Major..." %>
-    </div>
-  </div>
-    <div class="row">    
-      <div class="field col-md-6">
-        <%= f.text_field :tel, autocomplete: "off", class:"form-control", placeholder:"Telephone..." %>
-      </div>
-
       <div class="field col-md-6">
         <%= f.email_field :email, autofocus: true, autocomplete: "off", class:"form-control", placeholder:"Email..." %>
       </div>

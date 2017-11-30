@@ -6,19 +6,16 @@ class User < ApplicationRecord
 
   has_many :surveys, :dependent => :destroy
   has_many :answers, through: :surveys
-  has_one :internship_update
-  belongs_to :field_of_study
-  belongs_to :bank
+  has_one :internship_update, :dependent => :destroy
+  
+  has_one :application, :dependent => :destroy
   
   attr_accessor :login
 
   validates :first_name, presence: {message: "must be filled"}
   validates :last_name, presence: {message: "must be filled"}
   validates :id_number, numericality: {message: "will have to be 16"}
-  validates :field_of_studies, presence: {message: "must be filled"}
-  validates :district, presence: {message: "must be filled"}
-  validates :sector, presence: {message: "must be filled"}
-  validates :tel, presence: {message: "must be filled"}
+
 
   def login=(login)
     @login = login
@@ -40,16 +37,6 @@ class User < ApplicationRecord
 
   end
 
-
-  def gender
-    if self.is_female == true
-      return "Female"
-    elsif self.is_female == false
-      return "Male"
-    else
-      return "Unspecified"
-    end
-  end
 
 
   rails_admin do

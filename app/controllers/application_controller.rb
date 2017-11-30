@@ -7,8 +7,9 @@ class ApplicationController < ActionController::Base
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :college, :email, :password, :password_confirmation, :id_number, :district, :sector, :cell, :tel, :field_of_studies, :is_female) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :college, :email, :password, :password_confirmation, :id_number, :district, :sector, :cell, :tel, :field_of_studies, :is_female, :current_password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :id_number, :password, :password_confirmation) }
+
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name, :last_name, :email, :id_number, :password, :password_confirmation, :current_password) }
   end
 
   def resource_name
