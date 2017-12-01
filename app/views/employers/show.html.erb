@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% content_for :title do %>
+    <title><%= @employer.company_name %>| Internship Program</title>
+<% end %>
+</head>
+<body>
+  <address>
+    <fieldset>
+      <legend>Employer Information</legend>
+      <h5>Full Name: <%= "#{@employer.first_name} #{@employer.last_name}" %></h5>
+      <h5>Telephone Number: <%= @employer.phone_number %></h5>
+       <h5>Email Address: <%= @employer.email %></h5>
+      <h5>Available Time: <time><%= @employer.available_at.strftime("%H:%M:%S") %></time></h5>
+    </fieldset>
+    <fieldset>
+      <legend>Company Information</legend>
+      <h5>Company Name: <%= @employer.company_name %></h5>
+      <h5>Company Website: <a href="<%= @employer.company_website %>" target="_blank"><%= @employer.company_website %></a> </h5>
+      <h5>Location: <%= "#{@employer.district}, #{@employer.sector}" %></h5>
+      <h5></h5>
+      <h5>Value Chain: <%= @employer.chain_value.name %></h5>
+    </fieldset>
+  </address>
+  
+  <article>
+    <fieldset>
+      <legend>Company Deal</legend>
+      <h5>Number of Interns Requested: <%= @employer.number_of_interns %></h5>
+      <h5>Stipend amount: Rwf <%= @employer.stipend_amount %></h5>
+      <h5>Summary of the Request: <%= @employer.summary %></h5>
+    </fieldset>
+  </article>
+
+
+</body>
+</html>

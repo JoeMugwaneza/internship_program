@@ -1,8 +1,6 @@
 class EmployersController < ApplicationController
   before_action :set_employer, :only => [:show, :edit, :update, :congratulations]
 
-   include EmployersHelper
-
   def index
     @employers = Employer.all
   end

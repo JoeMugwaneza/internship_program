@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% content_for :title do %>
+    <title>Employers Main page| Internship Program</title>
+<% end %>
+<style type="text/css">
+  .col-sm {
+    width: 25%;
+    border: 5px solid green;
+    padding: 10px;
+    margin: 25px;
+    display: inline-grid;
+  }
+
+  header .tablink {
+    background-color: #555;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+    margin-left: 100px;
+  }
+
+  .tablink:hover {
+    background-color: #824229;
+  }
+
+
+</style>
+</head>
+<body>
+  <header>
+    <button class="tablink" onclick="openCity('Pending', this, 'green')">Pending Request</button>
+    <button class="tablink" onclick="openCity('Confirmed', this, 'blue')">Confirmed Request</button>
+  </header>
+  <main>
+    <section id="Pending" class="tabcontent">
+      
+   <div class="container">
+     <div class="row">
+
+     <h1>Pending Employer Requests</h1>
+
+      <% @employers.each_slice(3) do |employers| %>
+      <div class="row ">
+        
+      <% employers.each do |employer| %>
+        <div class="col-sm">
+          <p>
+            <h3>Company: <%= "#{employer.company_name}" %> </h3>
+             Employer Names: <%="#{ employer.first_name } #{employer.last_name}"%> <br>
+             Location: <%= "#{employer.district}, #{employer.sector}" %><br>
+             Value Chain: <%= employer.chain_value.name %><br>
+             Interns Requested: <%= employer.number_of_interns %>
+
+          </p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+     </div>
+  </div>
+    </section>
+    <section id="Confirmed" class="tabcontent">
+      
+    </section>
+  </main>
+    <script type="text/javascript">
+      function openCity(cityName, elmnt, color) {
+    // Hide all elements with class="tabcontent" by default */
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove the background color of all tablinks/buttons
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+
+    // Show the specific tab content
+    document.getElementById(cityName).style.display = "block";
+
+    // Add the specific color to the button used to open the tab content
+    elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+    </script>
+</body>
+</html>
