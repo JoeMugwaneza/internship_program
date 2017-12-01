@@ -45,17 +45,17 @@
 
      <h1>Pending Employer Requests</h1>
 
-      <% @employers.each_slice(3) do |employers| %>
+      <% @pending_employer_requests.each_slice(3) do |pending_requests| %>
       <div class="row ">
         
-      <% employers.each do |employer| %>
+      <% pending_requests.each do |pending_request| %>
         <div class="col-sm">
           <p>
-            <h3>Company: <%= "#{employer.company_name}" %> </h3>
-             Employer Names: <%="#{ employer.first_name } #{employer.last_name}"%> <br>
-             Location: <%= "#{employer.district}, #{employer.sector}" %><br>
-             Value Chain: <%= employer.chain_value.name %><br>
-             Interns Requested: <%= employer.number_of_interns %>
+            <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
+             Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>
+             Location: <%= "#{pending_request.district}, #{pending_request.sector}" %><br>
+             Value Chain: <%= pending_request.chain_value.name %><br>
+             Interns Requested: <%= pending_request.number_of_interns %>
 
           </p>
         </div>
@@ -66,7 +66,30 @@
   </div>
     </section>
     <section id="Confirmed" class="tabcontent">
-      
+         <div class="container">
+     <div class="row">
+
+     <h1>Confirmed Employer Requests</h1>
+
+      <% @confirmed_employer_requests.each_slice(3) do |confrimed_requests| %>
+      <div class="row ">
+        
+      <% confirmed_requests.each do |confirmed_request| %>
+        <div class="col-sm">
+          <p>
+            <h3>Company: <%= "#{confirmed_request.company_name}" %> </h3>
+             Employer Names: <%="#{ confirmed_request.first_name } #{confirmed_request.last_name}"%> <br>
+             Location: <%= "#{confirmed_request.district}, #{confirmed_request.sector}" %><br>
+             Value Chain: <%= confirmed_request.chain_value.name %><br>
+             Interns Requested: <%= confirmed_request.number_of_interns %>
+
+          </p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+     </div>
+  </div>
     </section>
   </main>
     <script type="text/javascript">

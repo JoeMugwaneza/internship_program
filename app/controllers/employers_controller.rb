@@ -2,7 +2,8 @@ class EmployersController < ApplicationController
   before_action :set_employer, :only => [:show, :edit, :update, :congratulations]
 
   def index
-    @employers = Employer.all
+    @pending_employer_requests = Employer.pending_request
+    @confirmed_employer_requests = Employer.confirmed_request
   end
 
   def show
