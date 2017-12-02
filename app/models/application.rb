@@ -1,8 +1,12 @@
 class Application < ApplicationRecord
   belongs_to :user
-
   belongs_to :bank
   belongs_to :field_of_study
+  has_one :internship_update
+
+  scope :got_internship, -> {where(internship_placement: true)}
+  scope :looking_internship, -> {where(internship_placement: false) }
+
 
 
   
@@ -15,5 +19,9 @@ class Application < ApplicationRecord
     else
       return "Unspecified"
     end
+  end
+
+  def self.districts
+     Application.all
   end
 end

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <% content_for :title do %>
+    <title>Applications| Internship Program</title>
+<% end %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+
+   .current-database{
+    width: 25%;
+    border: 5px solid rgb(124, 74, 21);
+    padding: 10px;
+    margin: 25px;
+   }
+
+   .current-database ul li {
+    list-style-type: circle;
+   }
+  </style>
+</head>
+<body>
+  <div class="container-fuild" style="margin: 10px;">
+
+   <div class="current-database">
+   <p>
+    <h4>Current Database</h4>
+    <ul>
+     <li>
+      Applicants: <%= @applicants.count %>
+     </li>
+     <li>
+      Got Internship: <%= @applicants.got_internship.count %>
+     </li>
+     <li>
+      Waiting: <%= @applicants.looking_internship.count %>
+     </li>
+    </ul>
+  </p>
+  </div>
+
+<h2>Advanced Filters:</h2>
+<%= form_tag applications_path, :method => 'get' do  %>
+ <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
+  <%= submit_tag "Look" %>
+<% end %> <br>
+
+params.inspect
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>National ID</th>
+        <th>Gender</th>
+        <th>Bank Name</th>
+        <th>Bank Number</th>
+        <th>District</th>
+        <th>Sector</th>
+        <th>Field of Study</th>
+      </tr>
+    </thead>
+  <% @applicants.each do |applicant| %>    
+    <tbody>
+      <tr>
+        <td><%= applicant.user.first_name %></td>
+        <td><%= applicant.user.last_name %></td>
+        <td><%= applicant.phone_number %></td>
+        <td><%= applicant.user.email %></td>
+        <td><%= applicant.user.id_number %></td>
+        <td><%= applicant.gender %></td>
+        <td><%= applicant.bank.name %></td>
+        <td><%= applicant.bank_number %></td>
+        <td><%= applicant.district %></td>
+        <td><%= applicant.sector %></td>
+        <td><%= applicant.field_of_study.name %></td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

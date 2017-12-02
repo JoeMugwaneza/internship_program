@@ -1,5 +1,7 @@
 class Employer < ApplicationRecord
   belongs_to :chain_value
+  belongs_to :sector
+  belongs_to :district
   
   has_many :employer_fields
   has_many :field_of_studies, through: :employer_fields

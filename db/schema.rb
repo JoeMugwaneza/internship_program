@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201091751) do
+ActiveRecord::Schema.define(version: 20171202132558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 20171201091751) do
   end
 
   create_table "applications", force: :cascade do |t|
-    t.string "district"
-    t.string "sector"
     t.string "phone_number"
     t.integer "bank_id"
     t.string "bank_number"
@@ -36,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171201091751) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "district_id"
+    t.integer "sector_id"
     t.index ["user_id"], name: "index_applications_on_user_id"
   end
 
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20171201091751) do
   end
 
   create_table "chain_values", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "districts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -74,9 +80,9 @@ ActiveRecord::Schema.define(version: 20171201091751) do
     t.integer "chain_value_id"
     t.text "summary"
     t.string "email"
-    t.string "district"
-    t.string "sector"
     t.boolean "closed", default: false
+    t.integer "district_id"
+    t.integer "sector_id"
   end
 
   create_table "field_of_studies", force: :cascade do |t|
@@ -89,17 +95,24 @@ ActiveRecord::Schema.define(version: 20171201091751) do
     t.datetime "starting_at"
     t.integer "chain_value_id"
     t.boolean "completed", default: false
-    t.bigint "user_id"
+    t.bigint "application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "employer_id"
-    t.index ["user_id"], name: "index_internship_updates_on_user_id"
+    t.index ["application_id"], name: "index_internship_updates_on_application_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sectors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "district_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -135,6 +148,6 @@ ActiveRecord::Schema.define(version: 20171201091751) do
   add_foreign_key "applications", "users"
   add_foreign_key "employer_fields", "employers"
   add_foreign_key "employer_fields", "field_of_studies"
-  add_foreign_key "internship_updates", "users"
+  add_foreign_key "internship_updates", "users", column: "application_id"
   add_foreign_key "surveys", "users"
 end

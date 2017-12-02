@@ -18,10 +18,12 @@
     <%= form_for @application do |f| %>
       <fieldset>
         <legend>Location</legend>
-        <%= f.label :district %>
-        <%= f.text_field :district %>
-        <%= f.label :sector %>
-        <%= f.text_field :sector %>
+        <%= f.label :district_id %>
+        <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
+        <span id="sector-section"> 
+         <%= f.label :sector_id %>
+         <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+       </span>
       </fieldset><br>
       <fieldset>
         <legend>Sensitive</legend>

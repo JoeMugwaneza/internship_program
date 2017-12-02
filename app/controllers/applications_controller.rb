@@ -2,7 +2,7 @@ class ApplicationsController < ApplicationController
   before_action :set_application, :only => [:new, :create, :show, :edit, :update]
 
   def index
-    @applications = Application.all
+    @applicants = Application.all
   end
 
   def new
@@ -30,7 +30,7 @@ class ApplicationsController < ApplicationController
   private
 
   def params_application
-    params.require(:application).permit(:district, :sector, :phone_number, :bank_id, :bank_number, :is_female, :internship_placement, :field_of_study_id, :user_id)
+    params.require(:application).permit(:district_id, :sector_id, :phone_number, :bank_id, :bank_number, :is_female, :internship_placement, :field_of_study_id, :user_id)
   end
 
   def set_application
