@@ -30,10 +30,69 @@
     </section>
   <% else %>
     <section>
-
-      
+      <% if Time.beg %>
+      <div>
+          <fieldset>
+            <legend>Personal</legend>
+            <ul>
+              <li>
+                Names: <%= full_name %>
+              </li>
+              <li>
+                Email: <%= @user.email %>
+              </li>
+              <li>
+                Phone number: <%= @user.application.phone_number %> 
+              </li>
+              <li>
+                Gender: <%= @user.application.gender %>
+              </li>
+              <li>
+                National ID: <%= @user.id_number %>
+              </li>
+              <li>
+                Bank name: <%= "#{@user.application.bank.name}; #{@user.application.bank_number}" %>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset>
+            <legend>Education & Location</legend>
+            <ul>
+              <li>
+                Studied: <%= @user.application.field_of_study.name %>
+              </li>
+              <li>
+                Currently Living: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
+              </li>
+            </ul>
+          </fieldset>
+          <% if @user.application.internship_update.present? %>
+          <fieldset>
+            <legend>Internship Status</legend>
+            <ul>
+              <li>
+                Started At: <time><%= @user.application.internship_update.starting_at %></time>
+              </li>
+              <li>
+                Working: <%= @user.application.internship_update.chain_value.name %>
+              </li>
+              <li>
+                Employer name: <%= "#{@user.application.internship_update.employer.first_name} #{@user.application.internship_update.employer.last_name}" %>
+              </li>
+              <li>
+                Working place: <%= "#{@user.application.internship_update.district.name}, #{@user.application.internship_update.sector.name}" %>
+              </li>
+            </ul>
+          </fieldset>
+          <% end %>
+      </div>
       
     </section>
+
+    <!-- To be fixed on the side of the page -->
+    <aside>
+      
+    </aside>
   <% end %>
 
 </body>

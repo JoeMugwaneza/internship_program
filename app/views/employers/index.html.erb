@@ -53,7 +53,9 @@
           <p>
             <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
              Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>
-             Location: <%= "#{pending_request.district}, #{pending_request.sector}" %><br>
+             <% if pending_request.district.present? %>
+             Location: <%= "#{pending_request.district.name}, #{pending_request.sector.name}" %><br>
+             <% end %>
              Value Chain: <%= pending_request.chain_value.name %><br>
              Interns Requested: <%= pending_request.number_of_interns %>
 
