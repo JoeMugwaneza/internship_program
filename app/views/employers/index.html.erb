@@ -28,7 +28,16 @@
   .tablink:hover {
     background-color: #824229;
   }
+  .myBox a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+    font-weight: inherit;
+  }
 
+  .myBox:hover .col-sm {
+    background-color: rgb(102, 153, 255, 0.8);
+  }
 
 </style>
 </head>
@@ -49,18 +58,20 @@
       <div class="row ">
         
       <% pending_requests.each do |pending_request| %>
-        <div class="col-sm">
-          <p>
-            <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
-             Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>
-             <% if pending_request.district.present? %>
-             Location: <%= "#{pending_request.district.name}, #{pending_request.sector.name}" %><br>
-             <% end %>
-             Value Chain: <%= pending_request.chain_value.name %><br>
-             Interns Requested: <%= pending_request.number_of_interns %>
+        <span class="myBox">
+          <a href="/applications?employer_id=<%= pending_request.id %>" class="col-sm">
+            <p>
+              <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
+               Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>
+               <% if pending_request.district.present? %>
+               Location: <%= "#{pending_request.district.name}, #{pending_request.sector.name}" %><br>
+               <% end %>
+               Value Chain: <%= pending_request.chain_value.name %><br>
+               Interns Requested: <%= pending_request.number_of_interns %>
 
-          </p>
-        </div>
+            </p>
+          </a>
+        </span>
         <% end %>
       </div>
     <% end %>

@@ -51,7 +51,7 @@
   <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %>
   <span id="sector-section"> 
     <%= label_tag :sector_id %>
-    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, :prompt => true%>
+    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
   </span>
 
   <br><br> <%= submit_tag "Look" %>

@@ -10,9 +10,12 @@ jQuery ->
     escaped_district = district.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
     options = $(sectors).filter("optgroup[label='#{district}']").html()
 
+
     if options
       $('#application_sector_id').html(options)
       $('#application_sector_id').parent().show()
+      $('#application_sector_id').prepend('<option value="0"></option>')
+      $('#application_sector_id').val(0)
     else
       $('#application_sector_id').empty()
       $('#application_sector_id').parent().hide()
