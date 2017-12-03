@@ -31,6 +31,7 @@
 
         <div class="field">
           <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
+          <span class="glyphicon glyphicon-eye-open" id="code-status"></span>
         </div>
 
         <% if devise_mapping.rememberable? -%>
@@ -47,11 +48,26 @@
         <% end %>
       </div>
 
+
 <!-- <p>Don't have an account? <a class="btn btn-info" href="users/sign_up" style="border: none; background-color: none; text-decoration: underline;">Register</a></p>
 -->
 
-
+<script type="text/javascript">
+  $('#code-status').on({
+    click: function(){
+      if ( $('#user_password').attr('type') == "password") {
+        $('#user_password').attr('type', 'text')
+        $('#code-status').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close')
+      } else {
+        $('#user_password').attr('type', 'password')
+        $('#code-status').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open')
+      }
+    }
+  })
+</script>
 
 </body>
 </html>
+
+
 
