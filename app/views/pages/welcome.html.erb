@@ -14,19 +14,19 @@
 </head>
 <body >
   <!-- Header element -->
- <main>
-  <section id="RYAF" class="programIntroduction">
-    <div class="introduction-content">
-      <header>
-        <nav class="home-nav">
-          <ul>
-            <li><a href="#RYAF">Program</a></li>
-            <li><a href="#Instruction">Instructions</a></li>
-            <li><a href="#ContactUs"> Contact us</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- Header end here -->
+  <main>
+    <section id="RYAF" class="programIntroduction">
+      <div class="introduction-content">
+        <header>
+          <nav class="home-nav">
+            <ul>
+              <li><a href="#RYAF">Program</a></li>
+              <li><a href="#Instruction">Instructions</a></li>
+              <li><a href="#ContactUs"> Contact us</a></li>
+            </ul>
+          </nav>
+        </header>
+        <!-- Header end here -->
         <!-- all other part have to be included in main tag -->
         
         <!-- Welcome to the system notes -->
@@ -56,75 +56,95 @@
     <!-- This is a section for instruction of how to use RYAF Internship system -->
     <section id="Instruction">
       <div class="instructions-content">
-      <p>
-        RYAF works closely with CEBS and, for that, we are only concerned with the applicants who have completed CEBS Online Internship Application E-form, or willing to complete it now <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">here</a>.
-      </p>
-
-      <p class="tipsOfSystem">
-        <h4>Please note that:</h4>
-        <ol>
-          <li>
-            You will not get internship placement when you are not in CEBS database
-          </li>
-          <li>
-            You will need to fill in two registration forms before being a concern of RYAF
-            <ul>
-              <li>
-                CEBS registraction form <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Click here</a>
-              </li>
-              <li>
-                RYAF Internship application form <em>Check Sign up button</em>
-              </li>
-            </ul>
-          </ol>
-        </p>
+        <div class="up-content">          
         <p>
-            We are concerned with issues of internship in agricultural related fields. Working with us grant an placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
+          RYAF works closely with CEBS and, for that, we are only concerned with the applicants who have completed CEBS Online Internship Application E-form, or willing to complete it now <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">here</a>.
         </p>
-      </div>
+
+        <p class="tipsOfSystem">
+          <h4>Please note that:</h4>
+          <ol>
+            <li>
+              You will not get internship placement when you are not in CEBS database
+            </li>
+            <li>
+              You will need to fill in two registration forms before being a concern of RYAF
+              <ul>
+                <li>
+                  CEBS registraction form <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Click here</a>
+                </li>
+                <li>
+                  RYAF Internship application form <em>Check Sign up button</em>
+                </li>
+              </ul>
+            </ol>
+          </p>
+          <p>
+            We are concerned with issues of internship in agricultural related fields. Working with us grant an placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
+          </p>
+        </div>
+
+          <div class="row bottom-boxes" align="center">            
+            <aside class="col-md-5 request-intern">
+              <h4>About Requesting Interns</h4>
+              <p>
+                There is a single intern request form to fill and wait a very short time while processing your request.
+              </p>
+              <a href="<%= new_employer_path %>" class="btn btn-default">Request Interns</a>
+            </aside>
+
+            <aside class="col-md-5 about-intern">
+              <h4>About Interns</h4>
+              <p>
+                You will use the system form the time of applying, getting notification about internship as well as the entire time doing internship so as to communicate with RYAF Administration for further assistance. 
+              </p>
+              <a href="<%= new_user_registration_path %>" class="btn btn-default">Sign up</a>
+            </aside>
+          </div>
+
+        </div>
       </section>
-        <aside>
-          <h4>About Requesting Interns</h4>
-          <p>
-            There is a single intern request form to fill and wait a very short time while processing your request.
-
-
-          </p>
-            <a href="<%= new_employer_path %>">Request Interns</a>
-
-        </aside>
-        <aside>
-          <h4>About Interns</h4>
-          <p>
-            You will use the system form the time of applying, getting notification about internship as well as the entire time doing internship so as to communicate with RYAF Administration for further assistance. 
-          </p>
-          <a href="<%= new_user_registration_path %>">Sign up</a>
-        </aside>
     </main>
 
     <section id="ContactUs">
-    <div class="contact-us-content">
-      
+      <div class="contact-us-min">      
+        <div class="contact-us-content">
 
-    <h4>Contact Form</h4>
-    <summary>
-      <form>
-        <fieldset>
-          <label>Full Name: </label>
-          <input type="name" name="fname" placeholder="Eg. Joseph Mugwaneza" required="required"><br>
-          <label>Telephone:</label>
-          <input type="numeric" name="telephone" placeholder="eg. 0780000000 " required><br>
-          <label>Email Address: </label>
-          <input type="email" name="emailAddress" placeholder="Eg. mugwaneza@ryaf.rw"><br>
-          <label>Message</label><br>
-          <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea><br>
 
-        </fieldset>
+          <h4>Contact Form</h4>
+          <summary>
+            <form>
+              <fieldset>
+                <div class="contact-input-row">
 
-        <input type="submit" value="Message">
-      </form>
-    </summary>
-    </div>   
+                  <label>Full Name: </label>
+                  <input type="name" name="fname" placeholder="Eg. Joseph Mugwaneza" required="required"><br>
+                </div>
+
+                <div class="contact-input-row">
+                  <label>Telephone:</label>
+                  <input type="numeric" name="telephone" placeholder="eg. 0780000000 " required><br>
+                </div>
+
+                <div class="contact-input-row">                   
+                  <label>Email Address: </label>
+                  <input type="email" name="emailAddress" placeholder="Eg. mugwaneza@ryaf.rw"><br>
+                </div>
+
+                <div class="contact-input-row">                  
+                  <label>Message</label>
+                  <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea>
+                </div>
+
+              </fieldset>
+              <div class="get-started-btn">                
+                <button class="btn btn-default">Submit</button>
+              </div>
+
+            </form>
+          </summary>
+        </div>   
+      </div>
     </section>
     <!-- this is the part designed for footer -->
     <footer>

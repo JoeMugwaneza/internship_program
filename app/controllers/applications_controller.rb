@@ -2,7 +2,17 @@ class ApplicationsController < ApplicationController
   before_action :set_application, :only => [:new, :create, :show, :edit, :update]
 
   def index
-    @applicants = Application.all
+    if params[:application] && params[:application][:field_of_study_id].to_i
+      @applicants = Application.search(params[:application][:field_of_study_id])
+    else 
+      @applicants = Application.all
+    end
+
+    if params[:application] && params[:application][:district_id].to_i
+      @applicants = Application.query(params[:application][:district_id])
+    else
+      @applicants = Application.all
+    end
   end
 
   def new

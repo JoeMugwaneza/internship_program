@@ -3,6 +3,8 @@ class Application < ApplicationRecord
   belongs_to :bank
   belongs_to :field_of_study
   has_one :internship_update
+  belongs_to :district
+  belongs_to :sector
 
   scope :got_internship, -> {where(internship_placement: true)}
   scope :looking_internship, -> {where(internship_placement: false) }
@@ -21,7 +23,11 @@ class Application < ApplicationRecord
     end
   end
 
-  def self.districts
-     Application.all
+  def self.search(queryOne)
+    where(field_of_study_id: queryOne)
+  end
+
+  def self.query(query)
+    where(district_id: query)
   end
 end

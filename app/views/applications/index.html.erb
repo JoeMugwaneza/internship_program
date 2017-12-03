@@ -45,11 +45,17 @@
 
 <h2>Advanced Filters:</h2>
 <%= form_tag applications_path, :method => 'get' do  %>
- <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
-  <%= submit_tag "Look" %>
-<% end %> <br>
+  <%= label_tag :field_of_study_id %>
+  <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
+  <%= label_tag :district_id %>
+  <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %>
+  <span id="sector-section"> 
+    <%= label_tag :sector_id %>
+    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, :prompt => true%>
+  </span>
 
-params.inspect
+  <br><br> <%= submit_tag "Look" %>
+<% end %> <br>
 
   <table class="table table-bordered">
     <thead>
@@ -78,8 +84,8 @@ params.inspect
         <td><%= applicant.gender %></td>
         <td><%= applicant.bank.name %></td>
         <td><%= applicant.bank_number %></td>
-        <td><%= applicant.district %></td>
-        <td><%= applicant.sector %></td>
+        <td><%= applicant.district.name %></td>
+        <td><%= applicant.sector.name %></td>
         <td><%= applicant.field_of_study.name %></td>
       </tr>
   <% end %>

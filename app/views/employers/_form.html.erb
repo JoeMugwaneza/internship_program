@@ -3,69 +3,75 @@
 <head>
   <title></title>
 </head>
-<body>
+<body class="employers-form">
  <%= form_for @employer do |f| %>
-   <fieldset>
-     <legend>Employer Information</legend>
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
-      <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-      <%= f.label :phone_number %>
-      <%= f.telephone_field :phone_number %>
+ <fieldset>
+   <legend>Employer Information</legend>
+   <%#= f.label :first_name %>
+   <%= f.text_field :first_name, class:"form-control", placeholder:"First Name ..." %>
+   <%#= f.label :last_name %>
+   <%= f.text_field :last_name, class:"form-control", placeholder:"Last Name ..." %>
+   <%#= f.label :phone_number %>
+   <%= f.telephone_field :phone_number, class:"form-control", placeholder:"Phone-number" %>
+ </fieldset><br>
+ <fieldset>
+   <legend>Company Information</legend>
+   <%#= f.label :company_name %>
+   <%= f.text_field :company_name, class:"form-control", placeholder:"Company name ..." %>
+   <%#= f.label :email %>
+   <%= f.email_field :email, class:"form-control", placeholder:"Company email ..." %>
+   <%#= f.label :company_website %>
+   <%= f.text_field :company_website, class:"form-control", placeholder:"Company website link ..." %>
+
+   <div class="company-specific-info">
+
+    <div class="info-item">       
+       <%= f.label :value_chain %>
+       <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
+     </div>
+
+     <div class="info-item">
+       <%= f.label :available_at, "Best time to reach you"%>
+       <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
+     </div>
+
+     <div class="info-item">       
+       <%= f.label :district_id %>
+       <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
+       <span id="sector-section"> 
+         <%= f.label :sector_id %>
+         <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+       </span>
+     </div>
    </fieldset><br>
-   <fieldset>
-     <legend>Company Information</legend>
-     <%= f.label :company_name %>
-     <%= f.text_field :company_name %>
-     <%= f.label :email %>
-     <%= f.email_field :email %>
-     <%= f.label :company_website %>
-     <%= f.text_field :company_website %>
-     <%= f.label :value_chain %>
-     <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
+ </div>
 
-     <%= f.label :available_at, "Best time to reach you"%>
-     <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
-   </fieldset><br>
+ <fieldset>
+   <legend>Company Request</legend>
+   <%= f.label :number_of_interns, "Number of interns requested"%>
+   <%= f.number_field :number_of_interns, class:"form-control" %>
 
-   <fieldset>
-     <legend>Company Location</legend>
-     <%= f.label :district_id %>
-     <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
-     <span id="sector-section"> 
-     <%= f.label :sector_id %>
-     <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
-     </span>
-     
-   </fieldset><br>
+   <%= f.label :stipend_amount, "Estimated rate of stipend amount (RWF)" %>
+   <%= f.number_field :stipend_amount, class:"form-control"%><br><br>
 
-   <fieldset>
-     <legend>Company Request</legend>
-     <%= f.label :number_of_interns, "Number of interns requested"%>
-     <%= f.number_field :number_of_interns %>
+   <%= f.label :choose_from_these_available_field_of_studies %><br>
 
-     <%= f.label :stipend_amount, "Estimated rate of stipend amount (RWF)" %>
-     <%= f.number_field :stipend_amount, class: :text_field, step: :any %><br><br>
+   <%= f.collection_check_boxes(:field_of_study_ids, FieldOfStudy.all, :id, :name) do |b| %>
+   <%= b.label class: "col-sm-4" do %>
+   <%=b.check_box + b.text%>
+   <%end%>
+   <% end %>
 
-     <%= f.label :choose_from_these_available_field_of_studies %><br>
+ </fieldset><br>
+ <fieldset>
+   <legend>Summarize specific requirement or qualification for the intern.</legend>
+   <p>In case you want interns from different field of studies, please specific the number for each field of study of your choice. <em>Eg. Agribusiness, I need 2 interns and 2 soil science</em> </p>
 
-     <%= f.collection_check_boxes(:field_of_study_ids, FieldOfStudy.all, :id, :name) do |b| %>
-          <%= b.label class: "col-sm-4" do %>
-          <%=b.check_box + b.text%>
-        <%end%>
-     <% end %>
+   <%= f.label :request_summary%><br>
+   <%= f.text_area(:summary, cols: 120, rows: 10, placeholder: "Please use this space for additional information you would like us to know") %>
+ </fieldset>
 
-   </fieldset><br>
-   <fieldset>
-     <legend>Summarize specific requirement or qualification for the intern.</legend>
-       <p>In case you want interns from different field of studies, please specific the number for each field of study of your choice. <em>Eg. Agribusiness, I need 2 interns and 2 soil science</em> </p>
-       
-       <%= f.label :request_summary%><br>
-       <%= f.text_area(:summary, cols: 120, rows: 10, placeholder: "Please use this space for additional information you would like us to know") %>
-   </fieldset>
-
-   <%= f.submit "Create Intern Request" %>
+ <%= f.submit "Initiate Request" %>
 
  <% end %>
  <script type="text/javascript">

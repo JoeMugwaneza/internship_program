@@ -8,10 +8,10 @@
     <summary>Personal Information <span class="glyphicon glyphicon-hand-down"></span></summary>
     <div>
       <p>
-        First Name: <%= @user.first_name %> <br>
-        Last Name: <%= @user.last_name %><br>
-        Email Address: <%= @user.email %> <br>
-        National ID: <%= @user.id_number %>
+        First Name: <%= @application.user.first_name %> <br>
+        Last Name: <%= @application.user.last_name %><br>
+        Email Address: <%= @application.user.email %> <br>
+        National ID: <%= @application.user.id_number %>
       </p>
     </div>
   </details>
@@ -20,10 +20,10 @@
         <legend>Location</legend>
         <%= f.label :district_id %>
         <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
-        <span id="sector-section"> 
+        <div id="sector-section"> 
          <%= f.label :sector_id %>
          <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
-       </span>
+       </div>
       </fieldset><br>
       <fieldset>
         <legend>Sensitive</legend>

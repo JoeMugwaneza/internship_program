@@ -3,56 +3,55 @@
 <head>
 
   <% content_for :title do %>
-    <title>Sign in | Internship Program</title>
+  <title>Sign in | Internship Program</title>
   <% end %>
 
   <style type="text/css">
-    .mynavbar {
-      display: none;
-    }
-  </style>
+
+  .navbar-pages {
+    display: none;
+  } 
+
+</style>
 
 </head>
+
 <body class="login">
+  <div align="center">
+    <div class="tile">
+      <div class="tile-header">
+        <h2>SIGN IN</h2>
+      </div>
 
+      <div class="tile-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.text_field :login, placeholder: "Enter id number or email address", class:"form-control" %>
+        </div>
 
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
+        </div>
 
-<div align="center">
-  
-  <div class="tile">
-  <div class="tile-header">
-    <h2 style="color: white; opacity: .75; font-size: 4rem; display: flex; justify-content: center; align-items: center; height: 100%;">SIGN IN</h2>
-  </div>
+        <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+        <% end -%>
 
-<div class="tile-body">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.text_field :login, placeholder: "Enter id number or email address", class:"form-control" %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in", class:"login-submit-btn" %>
-  </div>
-    <%= render "devise/shared/links" %>
-<% end %>
-</div>
+        <div class="actions">
+          <%= f.submit "Log in", class:"login-submit-btn btn btn-default" %>
+        </div>
+        <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
 
 <!-- <p>Don't have an account? <a class="btn btn-info" href="users/sign_up" style="border: none; background-color: none; text-decoration: underline;">Register</a></p>
- -->
+-->
 
 
 
 </body>
 </html>
-  
+

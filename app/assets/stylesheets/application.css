@@ -16,7 +16,12 @@
  */
 
 
- .programIntroduction {
+ html body {
+  font-family: 'Josefin Slab', serif;
+}
+
+
+.programIntroduction {
   background-image: url(http://wallpaper.pickywallpapers.com/1680x1050/small-workplace-with-apple-gadgets.jpg);
   background-size: cover;
 
@@ -76,9 +81,9 @@ p .welcome-details {
 }
 
 hr {
-    margin-top: 0;
-    border-top: 0.1px solid #444;
-    width: 40%;
+  margin-top: 0;
+  border-top: 0.1px solid #444;
+  width: 40%;
 }
 
 .parnt-main-content {
@@ -92,11 +97,11 @@ hr {
 }
 
 .welcome-details {
-    font-size: 20px;
-    font-weight: 100;
-    width: 70%;
-    text-align: center;
-    margin-left: 15%;
+  font-size: 20px;
+  font-weight: 100;
+  width: 70%;
+  text-align: center;
+  margin-left: 15%;
 }
 
 .get-started-btn {
@@ -114,30 +119,104 @@ hr {
 }
 
 .btn-default:hover {
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: 1px solid rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: 1px solid rgba(0,0,0,0.6);
 }
 
 #Instruction {
   height: 600px;
-  display: table;
+  background-color: #FAFAFA;
 }
 .instructions-content {
-  display: table-cell;
-  vertical-align: middle;
+
 }
 
 #ContactUs {
   height: 550px;
-  background: rgba(0,0,0,0.6);
+  background-image: url(https://www.dentons.com/-/media/images/website/background-images/landing-pages/whats-different-about-dentons/contact-us/contact3.jpg);
   display: table;
   width: 100%;
 }
 
+.contact-us-min{
+  background: rgba(0,0,0,0.6);
+  height: 100%;
+  color: white;
+  width: 55%;
+  float: right;
+  padding: 5% 2% 2% 10%;
+}
+
 .contact-us-content {
-  display: table-cell;
-  vertical-align: middle;
+
+}
+
+#ContactUs h4 {
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 0.1px solid grey;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#ContactUs label {
+  display: inline-block;
+  max-width: -webkit-fill-available;
+  margin-bottom: 5px;
+  font-weight: bold;
+  width: 30%;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.contact-input-row {
+  padding: 7px;
+}
+
+.contact-input-row input, .contact-input-row textarea {
+  width: 60%;
+  background-color: transparent;
+  border: 0.1px solid grey;
+  padding: 5px 15px;
+}
+
+.up-content {
+  margin: 30px 70px;
+  font-size: 17px;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 0%;
+  text-align: center;
+}
+
+.up-content ol {
+  text-align: left;
+  margin-left: 25%;
+  padding: 30px;
+}
+
+.up-content h4 {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+
+.row.bottom-boxes {
+  text-align: center;
+  padding: 0 12%;
+}
+
+aside.col-md-5.request-intern, aside.col-md-5.about-intern {
+  height: 170px;
+  margin: 0 44px;
+  padding: 5px;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
+}
+
+aside .btn-default {
+  background: #429DB4;
+  margin-top: 15px;
 }
 
 footer {
@@ -152,13 +231,93 @@ footer ul {
 }
 
 footer ul li {
-    display: inline;
-    padding: 30px;
+  display: inline;
+  padding: 30px;
 }
 
 footer ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
+  color: white;
+  text-decoration: none !important;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+
+/*sign in page*/
+
+.tile {
+  width: 30%;
+  margin-top: 10%;
+  box-shadow: 0 0 15px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+}
+
+.login .field {
+    margin: 20px 0;
+}
+
+.tile h2 {
+    font-weight: bolder;
+    text-shadow: 3px 2px 4px grey;
+}
+
+.login .btn-default {
+    background: #429DB4;
+}
+
+/*signup page*/
+.tileOne {
+    border: 50px solid #429DB4;
+    width: 50%;
+    border-radius: 50%;
+    padding: 55px;
+    margin-left: 25%;
+    margin-top: 10px;
+    background: #ebebeb;
+}
+
+.sign-up-content {
+    text-align: center;
+}
+
+.form-control {
+    margin: 10px;
+    display: contents;
+    width: 80%;
+    text-align: center;
+}
+
+.signup .btn-default {
+    background: #429DB4;
+}
+
+/*Employers form */
+
+form#new_employer {
+    padding: 50px;
+}
+
+.new_employer input {
+    width: 30%;
+    margin: 0 10px;
+    display: inline;
+    text-align: left;
+}
+
+.new_employer legend {
+    text-align: center;
+    border-bottom: none;
     font-weight: bold;
+}
+
+.company-specific-info {
+    margin-top: 20px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.info-item {
+    display: inline;
+    margin: 0 55px;
 }
