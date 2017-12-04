@@ -9,6 +9,9 @@ RailsAdmin.config do |config|
     end
   end
 
+  
+
+
 
   ### Popular gems integration
 
@@ -34,7 +37,8 @@ RailsAdmin.config do |config|
   # config.show_gravatar = true
 
   config.actions do
-    dashboard                     # mandatory
+    dashboard  do
+    end                  # mandatory
     index                         # mandatory
     new
     export

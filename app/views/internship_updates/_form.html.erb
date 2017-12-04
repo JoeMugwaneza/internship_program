@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <%= form_for @intern do |f| %>
+    <%= f.label :application_id %>
+    <%= f.collection_select :application_id, Application.looking_internship, :id, :full_name, :prompt => true %>
+  <% end %>
+
+</body>
+</html>

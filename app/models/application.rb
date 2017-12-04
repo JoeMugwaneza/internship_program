@@ -9,9 +9,10 @@ class Application < ApplicationRecord
   scope :got_internship, -> {where(internship_placement: true)}
   scope :looking_internship, -> {where(internship_placement: false) }
 
-
-
-  
+  def full_name
+    user = self.user
+    return full_name =  "#{user.first_name} #{user.last_name}"
+  end
 
   def gender
     if self.is_female == true
