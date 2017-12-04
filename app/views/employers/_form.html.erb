@@ -3,55 +3,61 @@
 <head>
   <title></title>
   <style type="text/css">
-    .navbar-pages {
-      display: none;
-    }
-  </style>
+  .navbar-pages {
+    display: none;
+  }
+</style>
 </head>
-<body class="employers-form">
+<body>
  <%= form_for @employer do |f| %>
- <fieldset>
-   <legend>Employer Information</legend>
-   <%#= f.label :first_name %>
-   <%= f.text_field :first_name, class:"form-control", placeholder:"First Name ..." %>
-   <%#= f.label :last_name %>
-   <%= f.text_field :last_name, class:"form-control", placeholder:"Last Name ..." %>
-   <%#= f.label :phone_number %>
-   <%= f.telephone_field :phone_number, class:"form-control", placeholder:"Phone-number" %>
- </fieldset><br>
- <fieldset>
-   <legend>Company Information</legend>
-   <%#= f.label :company_name %>
-   <%= f.text_field :company_name, class:"form-control", placeholder:"Company name ..." %>
-   <%#= f.label :email %>
-   <%= f.email_field :email, class:"form-control", placeholder:"Company email ..." %>
-   <%#= f.label :company_website %>
-   <%= f.text_field :company_website, class:"form-control", placeholder:"Company website link ..." %>
+ <div class="employers-form">
 
-   <div class="company-specific-info">
+   <div class="row">
 
-    <div class="info-item">       
-       <%= f.label :value_chain %>
-       <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
+     <fieldset class="col-md-6 common-box">
+       <legend>Employer Information</legend>
+       <%#= f.label :first_name %>
+       <%= f.text_field :first_name, class:"form-control", placeholder:"First Name ..." %>
+       <%#= f.label :last_name %>
+       <%= f.text_field :last_name, class:"form-control", placeholder:"Last Name ..." %>
+       <%#= f.label :phone_number %>
+       <%= f.telephone_field :phone_number, class:"form-control", placeholder:"Phone-number" %>
+     </fieldset>
+     <fieldset class="col-md-6 common-box">
+       <legend>Company Information</legend>
+       <%#= f.label :company_name %>
+       <%= f.text_field :company_name, class:"form-control", placeholder:"Company name ..." %>
+       <%#= f.label :email %>
+       <%= f.email_field :email, class:"form-control", placeholder:"Company email ..." %>
+       <%#= f.label :company_website %>
+       <%= f.text_field :company_website, class:"form-control", placeholder:"Company website link ..." %>
+
+       <div class="company-specific-info">
+
+        <div class="info-item">       
+         <%= f.label :value_chain %>
+         <%= f.select :chain_value_id, ChainValue.all.collect {|chain_value| [chain_value.name, chain_value.id]}, include_blank: "Select option"%>
+       </div>
+
+       <div class="info-item">
+         <%= f.label :available_at, "Best time to reach you"%>
+         <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
+       </div>
+
+       <div class="info-item">       
+         <%= f.label :district_id %>
+         <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
+         <span id="sector-section"> 
+           <%= f.label :sector_id %>
+           <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+         </span>
+       </div>
      </div>
-
-     <div class="info-item">
-       <%= f.label :available_at, "Best time to reach you"%>
-       <%= f.datetime_select :available_at, discard_year: true, discard_month: true, default: Time.now %>
-     </div>
-
-     <div class="info-item">       
-       <%= f.label :district_id %>
-       <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
-       <span id="sector-section"> 
-         <%= f.label :sector_id %>
-         <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
-       </span>
-     </div>
-   </fieldset><br>
+   </fieldset>
  </div>
 
- <fieldset>
+ <div class="row">  
+  <fieldset class="col-md-6 common-box">
    <legend>Company Request</legend>
    <%= f.label :number_of_interns, "Number of interns requested"%>
    <%= f.number_field :number_of_interns, class:"form-control" %>
@@ -67,19 +73,25 @@
    <%end%>
    <% end %>
 
- </fieldset><br>
- <fieldset>
+ </fieldset>
+ <fieldset class="col-md-6 common-box">
    <legend>Summarize specific requirement or qualification for the intern.</legend>
    <p>In case you want interns from different field of studies, please specific the number for each field of study of your choice. <em>Eg. Agribusiness, I need 2 interns and 2 soil science</em> </p>
 
    <%= f.label :request_summary%><br>
-   <%= f.text_area(:summary, cols: 120, rows: 10, placeholder: "Please use this space for additional information you would like us to know") %>
+   <%= f.text_area(:summary, cols: 80, rows: 10, placeholder: "Please use this space for additional information you would like us to know") %>
+
+   <div class="submit-btn">   
+     <%= f.submit "Initiate Request", class:"btn main-btn" %>
+   </div>
+
  </fieldset>
+ 
+</div>
+</div>
 
- <%= f.submit "Initiate Request" %>
-
- <% end %>
- <script type="text/javascript">
- </script>
+<% end %>
+<script type="text/javascript">
+</script>
 </body>
 </html>

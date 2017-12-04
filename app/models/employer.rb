@@ -7,5 +7,9 @@ class Employer < ApplicationRecord
   has_many :field_of_studies, through: :employer_fields
   scope :pending_request, -> {where(closed: false)}
   scope :confirmed_request, -> {where(closed: true)}
-  
+
+
+  def employer_names
+    return employer_names = "#{self.first_name} #{self.last_name}"
+  end
 end

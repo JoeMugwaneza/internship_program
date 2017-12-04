@@ -13,9 +13,12 @@ class InternshipUpdatesController < ApplicationController
   end
 
   def create
+    @employer = InternshipUpdate.find_by(id: params[:employer_id])
+    jdjkkdkkddd
     @intern = InternshipUpdate.new(params_interns)
 
     if @intern.save
+      @intern.application.update_attribute(internship_placement: true )
       redirect_to applications_path
     else
       render :new
