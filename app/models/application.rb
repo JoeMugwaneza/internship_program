@@ -2,7 +2,7 @@ class Application < ApplicationRecord
   belongs_to :user
   belongs_to :bank
   belongs_to :field_of_study
-  has_one :internship_update
+  has_one :internship_update, :dependent => :destroy
   belongs_to :district
   belongs_to :sector
 

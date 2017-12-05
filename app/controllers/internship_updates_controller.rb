@@ -1,4 +1,5 @@
 class InternshipUpdatesController < ApplicationController
+  before_action :set_employer, :only => [:new, :create, :edit, :update]
   
   def new
     @intern = InternshipUpdate.new
@@ -8,8 +9,12 @@ class InternshipUpdatesController < ApplicationController
     @intern = InternshipUpdate.new(params_interns)
 
     if @intern.save
-      @intern.application.update(internship_placement: true )
-      redirect_to applications_path
+      @intern.application.update(internship_placement: true)
+
+      if @employer.number_of_interns == InternshipUpdate.includes(:employers).where(employer_id: params[:internship_update][:employer_id].to_i).size
+        @employer.update(closed: true)
+      end
+      redirect_to employers_path
     else
       render :new
     end
@@ -28,4 +33,9 @@ class InternshipUpdatesController < ApplicationController
   def params_interns
     params.require(:internship_update).permit(:starting_at, :chain_value_id, :application_id, :employer_id)
   end
+
+  def set_employer
+    @employer = Employer.find(params[:internship_update][:employer_id].to_i)
+  end
+
 end

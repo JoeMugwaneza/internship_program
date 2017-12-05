@@ -3,13 +3,11 @@ class ApplicationsController < ApplicationController
 
   def index
       if params[:application]
-        @applicants = Application.search(params[:application])
+        @applicants = Application.looking_internship.search(params[:application])
       else
-        @applicants = Application.all
+        @applicants = Application.looking_internship
       end
       @intern = InternshipUpdate.new
-
-
   end
 
   def new

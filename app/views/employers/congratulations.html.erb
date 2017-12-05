@@ -38,8 +38,8 @@
            Company Name: <%= @employer.company_name %><br>
            Email Address: <%= @employer.email %><br>
            Email Addres : <a href="<%= @employer.company_website %>", target="_blank"><%= @employer.company_website %></a> <br>
-           District: <%= @employer.district %><br>
-           Sector: <%= @employer.sector %><br>
+           District: <%= @employer.district.name %><br>
+           Sector: <%= @employer.sector.name %><br>
          </p>
         <em>If information displayed above seem to be missing or contains some errors please <a href="<%= edit_employer_path(@employer) %>">clear here to edit</a></em>
        </div>

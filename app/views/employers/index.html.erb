@@ -84,7 +84,7 @@
 
      <h1>Confirmed Employer Requests</h1>
 
-      <% @confirmed_employer_requests.each_slice(3) do |confrimed_requests| %>
+      <% @confirmed_employer_requests.each_slice(3) do |confirmed_requests| %>
       <div class="row ">
         
       <% confirmed_requests.each do |confirmed_request| %>
@@ -92,7 +92,7 @@
           <p>
             <h3>Company: <%= "#{confirmed_request.company_name}" %> </h3>
              Employer Names: <%="#{ confirmed_request.first_name } #{confirmed_request.last_name}"%> <br>
-             Location: <%= "#{confirmed_request.district}, #{confirmed_request.sector}" %><br>
+             Location: <%= "#{confirmed_request.district.name}, #{confirmed_request.sector.name}" %><br>
              Value Chain: <%= confirmed_request.chain_value.name %><br>
              Interns Requested: <%= confirmed_request.number_of_interns %>
 
