@@ -7,9 +7,6 @@ class ApplicationsController < ApplicationController
       else
         @applicants = Application.all
       end
-
-      @my_params = params[:employer_id]
-      @employer = Employer.find(params[:employer_id].to_i)
       @intern = InternshipUpdate.new
 
 

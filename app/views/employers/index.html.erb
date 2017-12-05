@@ -59,7 +59,7 @@
         
       <% pending_requests.each do |pending_request| %>
         <span class="myBox">
-          <a href="/applications?employer_id=<%= pending_request.id %>" class="col-sm">
+          <a href="/applications?employer_id=<%= pending_request.id %>&&chain_value_id=<%= pending_request.chain_value.id %>" class="col-sm">
             <p>
               <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
                Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>

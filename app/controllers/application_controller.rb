@@ -39,4 +39,6 @@ class ApplicationController < ActionController::Base
       ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
     end
   end
+
+
 end

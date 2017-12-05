@@ -8,11 +8,13 @@
     <%= f.label :application_id %>
     <%= f.collection_select :application_id, Application.looking_internship, :id, :full_name, :prompt => true %>
     <%= f.label :chain_value_id %>
-    <%= f.collection_select :chain_value_id, ChainValue.order(:name), :id, :name, :prompt => true %>
+    <%= f.collection_select :chain_value_id, ChainValue.order(:name), :id, :name, selected: "#{params[:chain_value_id]}" %>
     <%= f.label :starting_at, "Starting Internship:"%>
     <%= f.datetime_select :starting_at, discard_minute: true, discard_hour: true, discard_second: true, default: Time.now %>
     <%= f.label :employer_id, "Working for:" %>
-    <%= f.collection_select :employer_id,  Employer.order(:last_name), :id, :employer_names, value: "#{@my_params}" %>
+    <%= f.collection_select :employer_id,  Employer.order(:last_name), :id, :employer_names, selected: "#{params[:employer_id]}" %>
+
+    <%= f.submit %>
 
   <% end %>
 
