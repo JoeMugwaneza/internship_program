@@ -71,7 +71,7 @@
             <legend>Internship Status</legend>
             <ul>
               <li>
-                Started At: <time><%= @user.application.internship_update.starting_at %></time>
+                Started At: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
               </li>
               <li>
                 Working: <%= @user.application.internship_update.chain_value.name %>
@@ -81,6 +81,10 @@
               </li>
               <li>
                 Working place: <%= "#{@user.application.internship_update.employer.district.name}, #{@user.application.internship_update.employer.sector.name}" %>
+              </li>
+
+              <li>
+                To be end: 
               </li>
             </ul>
           </fieldset>
