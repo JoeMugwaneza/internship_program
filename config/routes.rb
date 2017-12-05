@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :surveys
   resources :questions
   resources :answers
-  resources :users, :only => [:index, :show]
+  resources :users, :only => [:index, :show, :edit, :update]
   resources :employers
   resources :applications
   resources :internship_updates

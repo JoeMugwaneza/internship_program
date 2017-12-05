@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% content_for :title do %>
+    <title> Edit Profile <%= full_name %>| Internship Program</title>
+  <% end %>
+</head>
+<body>
+  <%= form_for @user, method: :put do |f| %>
+  <fieldset>
+    <legend>Edit Personal </legend>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <%= f.label :email_address %>
+    <%= f.email_field :email %>
+    <%= f.label :id_number %>
+    <%= f.number_field :id_number %>
+    <%= f.fields_for :application do |field| %>
+    <%= field.label :phone_number %>
+    <%= field.number_field :phone_number %><br>
+    <%= field.label :gender %>
+    <%= field.radio_button :is_female, true %> <%= f.label :is_female, "Female" %>
+    <%= field.radio_button :is_female, false %> <%= f.label :is_female, "Male" %><br>
+
+    <% end %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Application</legend>
+    <%= f.fields_for :application do |field| %>
+    <%= field.label :bank_name %>
+    <%= field.collection_select :bank_id, Bank.all, :id, :name %>
+    <%= field.label :bank_number %>
+    <%= field.number_field :bank_number %>
+    <%= field.label :field_of_study_id %>
+    <%= field.collection_select :field_of_study_id, FieldOfStudy.order(:name), :id, :name %>
+    <%= field.label :district_id %>
+    <%= field.collection_select :district_id, District.order(:name), :id, :name %>
+    <%= field.label :sector_id %>
+    <%= field.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+    <% end %>
+  </fieldset>
+  <fieldset>
+    <legend>Security</legend>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password %>
+    
+  </fieldset><br>
+
+  <%= f.submit "Update Changes"%>
+  <% end %>
+</body>
+</html>

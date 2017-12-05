@@ -64,6 +64,7 @@
                 Currently Living: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
               </li>
             </ul>
+            <a href="<%=  edit_user_path(@user)%>">Edit Information</a>
           </fieldset>
           <% if @user.application.internship_update.present? %>
           <fieldset>
@@ -79,7 +80,7 @@
                 Employer name: <%= "#{@user.application.internship_update.employer.first_name} #{@user.application.internship_update.employer.last_name}" %>
               </li>
               <li>
-                Working place: <%= "#{@user.application.internship_update.district.name}, #{@user.application.internship_update.sector.name}" %>
+                Working place: <%= "#{@user.application.internship_update.employer.district.name}, #{@user.application.internship_update.employer.sector.name}" %>
               </li>
             </ul>
           </fieldset>

@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :answers, through: :surveys
   
   has_one :application, :dependent => :destroy
+  accepts_nested_attributes_for :application, :allow_destroy => true
   
   attr_accessor :login
 
