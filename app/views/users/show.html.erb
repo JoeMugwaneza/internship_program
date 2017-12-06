@@ -8,7 +8,7 @@
 
 <body>
   <% if @user.application.nil? %>
-    <section>
+    <section class="welcome-profile-note">
       <div>
         <h4>Hello <%= @user.last_name %></h4>
         <p>
@@ -25,7 +25,9 @@
         <p>
           Then <%= @user.last_name %>,  <span class="glyphicon glyphicon-hand-right"> here you are.</span>
         </p>
-        <a href="<%= new_application_path %>">Get started with application</a>
+        <div class="get-started-btn">          
+        <a href="<%= new_application_path %>" class="btn btn-default">Get started with application</a>
+        </div>
       </div>
     </section>
   <% else %>
@@ -61,7 +63,7 @@
                 Studied: <%= @user.application.field_of_study.name %>
               </li>
               <li>
-                Currently Living: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
+                Currently Living in: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
               </li>
             </ul>
             <a href="<%=  edit_user_path(@user)%>">Edit Information</a>

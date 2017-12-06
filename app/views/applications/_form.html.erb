@@ -4,44 +4,53 @@
   <title></title>
 </head>
 <body>
-  <details>
-    <summary>Personal Information <span class="glyphicon glyphicon-hand-down"></span></summary>
-    <div>
-      <p>
-        First Name: <%= @application.user.first_name %> <br>
-        Last Name: <%= @application.user.last_name %><br>
-        Email Address: <%= @application.user.email %> <br>
-        National ID: <%= @application.user.id_number %>
-      </p>
-    </div>
-  </details>
+  <div class="application-form">
+
+    <details>
+      <summary>Personal Information <span class="glyphicon glyphicon-hand-down"></span></summary>
+      <div>
+        <p>
+          First Name: <%= @user.first_name %> <br>
+          Last Name: <%= @user.last_name %><br>
+          Email Address: <%= @user.email %> <br>
+          National ID: <%= @user.id_number %>
+        </p>
+      </div>
+    </details>
     <%= form_for @application do |f| %>
-      <fieldset>
-        <legend>Location</legend>
-        <%= f.label :district_id %>
-        <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
-        <div id="sector-section"> 
-         <%= f.label :sector_id %>
-         <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
-       </div>
-      </fieldset><br>
-      <fieldset>
-        <legend>Sensitive</legend>
-        <%= f.label :gender %><br>
-        <%= f.radio_button :is_female, true %> <%= f.label :is_female, "Female" %>
-        <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %><br>
+    <fieldset>
+      <legend>Location</legend>
+      <%= f.label :district_id %>
+      <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
+      <span id="sector-section"> 
+       <%= f.label :sector_id %>
+       <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+     </span>
+   </fieldset><br>
+   <fieldset>
+    <legend>Sensitive</legend>
+    <%= f.label :gender %><br>
+    <%= f.radio_button :is_female, true %> <%= f.label :is_female, "Female" %>
+    <%= f.radio_button :is_female, false %> <%= f.label :is_female, "Male" %><br>
+    
+      
+    <%= f.label :phone_number %>
+    <%= f.number_field :phone_number %>
+    <%= f.label :field_of_study %>
+    <%= f.select :field_of_study_id, FieldOfStudy.all.collect {|education| [education.name, education.id]}, include_blank: "Select option" %>
+    
+    <div class="input-application-options">
+    <%= f.label :bank_name %>
+    <%= f.select :bank_id, Bank.all.collect {|bank| [bank.name, bank.id]}, include_blank: "Select option" %>
+    <%= f.label :bank_number %>
+    <%= f.number_field :bank_number %>
+    </div>
+  </fieldset><br>
 
-        <%= f.label :phone_number %>
-        <%= f.number_field :phone_number %>
-        <%= f.label :field_of_study %>
-        <%= f.select :field_of_study_id, FieldOfStudy.all.collect {|education| [education.name, education.id]}, include_blank: "Select option" %>
-        <%= f.label :bank_name %>
-        <%= f.select :bank_id, Bank.all.collect {|bank| [bank.name, bank.id]}, include_blank: "Select option" %>
-        <%= f.label :bank_number %>
-        <%= f.number_field :bank_number %>
-      </fieldset><br>
-
-      <%= f.submit "Submit Application" %>
-    <% end %>
+  <div class="get-started-btn">    
+    <%= f.submit "Submit Application", class:"btn btn-default" %>
+  </div>
+  <% end %>
+</div>
 </body>
 </html>
