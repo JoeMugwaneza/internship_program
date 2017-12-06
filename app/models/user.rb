@@ -37,6 +37,11 @@ class User < ApplicationRecord
 
   end
 
+  def expect_end
+    range_time = self.starting_at + 6.months
+    expect_end = range_time.strftime("%B %d, %Y")
+  end
+
 
 
   rails_admin do

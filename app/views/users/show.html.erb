@@ -74,17 +74,19 @@
                 Started At: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
               </li>
               <li>
-                Working: <%= @user.application.internship_update.chain_value.name %>
+                Expected End: <time><%= @user.application.internship_update.expected_end %></time>
+              </li>
+              <li>
+                Remaining: <time><%= @user.application.internship_update.remaining_time%></time>
+              </li>
+              <li>
+                Working in: <%= @user.application.internship_update.chain_value.name %>
               </li>
               <li>
                 Employer name: <%= "#{@user.application.internship_update.employer.first_name} #{@user.application.internship_update.employer.last_name}" %>
               </li>
               <li>
                 Working place: <%= "#{@user.application.internship_update.employer.district.name}, #{@user.application.internship_update.employer.sector.name}" %>
-              </li>
-
-              <li>
-                To be end: 
               </li>
             </ul>
           </fieldset>
