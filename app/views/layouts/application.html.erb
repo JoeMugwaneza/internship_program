@@ -22,8 +22,11 @@
       
       <a class="navbar-brand" href="<%= root_url %>">RYAF Internship System</a>
       <% if current_user &&  current_user.admin == true %>
-        <a class="navbar-brand" href="/admin">Admin</a>
-        <a class="navbar-brand" href="<%= users_path %>">Users</a>
+        <a class="navbar-brand" href="/admin">Site admin</a>
+        <a class="navbar-brand" href="<%= users_path %>" onclick="location.reload()">Users</a>
+        <a class="navbar-brand" href="<%= applications_path %>" onclick="location.reload()">Applications</a>
+        <a class="navbar-brand" href="<%= employers_path %>" onclick="location.reload()">Employers</a>
+        <a class="navbar-brand" href="<%= surveys_path %>" onclick="location.reload()">Surveys</a>
       <% end %>
     <div class="collapse navbar-collapse" id="myNavbar">
       

@@ -15,7 +15,7 @@
             </div>
           </div>
           <div class="panel-body">
-            <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+            <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Users" />
           </div>
           <table class="table table-hover" id="dev-table">
             <thead>
@@ -40,16 +40,14 @@
                 <td><%= user.first_name %></td>
                 <td><%= user.last_name %></td>
                 <td><%= user.id_number %></td>
-                <td><%= user.tel %></td>
-                <td><%= user.gender %></td>
-                <td><%= user.field_of_studies %></td>
-                <td><%= user.district %></td>
-                <td><%= user.sector %></td>
-                <% if user.internship_placement == false %>
-                <td><a href="/users?internship_placement=<%= user.id %>"><%= user.internship_placement %></a></td>
-                <% else user.internship_placement %>
-                <td><%= user.internship_placement %></td>
-                <% end %>
+                <% if user.application.present? %>
+                <td><%= user.application.phone_number %></td>
+                <td><%= user.application.gender %></td>
+                <td><%= user.application.field_of_study.name %></td>
+                <td><%= user.application.district.name %></td>
+                <td><%= user.application.sector.name %></td>
+                <td><%= user.application.internship_placement %></td>
+              <% end %>
               </tr>
             <% end %>
             </tbody>

@@ -12,7 +12,7 @@
     <div class="w3layouts_main agileinfo w3" style="font-family: 'Playfair Display', serif; font-weight: bold; font-size: 16px;">
        <h4>Report Title: <%= @survey.name %></h4>
        <h4>Reported by: <%="#{ @survey.user.first_name} #{@survey.user.last_name}" %></h4>
-       <h4>Reporter Gender: <%= @survey.user.gender %></h4>
+       <h4>Reporter Gender: <%= @survey.user.application.gender %></h4>
     </div>
   </div>
       <ol style="font-family: 'Playfair Display', serif;">

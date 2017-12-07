@@ -30,7 +30,8 @@
            <% @surveys.reverse_each do |survey| %>
       <tr>
         <td><%= link_to survey.name, survey%></td>
-        <td><%= link_to "Show", survey_path(survey) %></td>
+        <td><a href="<%= survey_path(survey) %>" onclick="location.reload()">Show</a></td>
+      
         <!-- <td><%#= link_to "Edit", edit_survey_path(survey) %></td>
         <td><%#= link_to "Delete", "/surveys/#{survey.id}", method: :delete %></td> -->
       </tr>

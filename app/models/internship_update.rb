@@ -20,6 +20,8 @@ class InternshipUpdate < ApplicationRecord
     if remaining_days == 1 
 
       return "#{remaining_months} months and  #{remaining_days} day"
+    elsif remaining_days == 0
+      return  "#{remaining_months} months"
     else
       return "#{remaining_months} months and  #{remaining_days} days"
     end
