@@ -1,5 +1,6 @@
 class InternshipUpdatesController < ApplicationController
   before_action :set_employer, :only => [:new, :create, :edit, :update]
+  before_action :authenticate_user!, :only => [:index]
   
   def new
     @intern = InternshipUpdate.new

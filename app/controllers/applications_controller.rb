@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, :only => [:new, :create, :show, :edit, :update]
+  before_action :authenticate_user!, :only => [:index]
 
   def index
       if params[:application]

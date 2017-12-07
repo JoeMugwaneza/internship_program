@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, :only => [:index, :destroy]
   before_action :set_user, :only => [:show, :edit, :update]
-  
+  before_action :correct_user, :only => [:edit, :update]
+
   def index
     @users = User.all.order("updated_at DESC")
 
@@ -36,5 +38,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(user_path(@user)) unless @user == current_user
   end
 end

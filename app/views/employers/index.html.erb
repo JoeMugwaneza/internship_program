@@ -19,7 +19,7 @@
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 14px 30px;
     font-size: 17px;
     width: 25%;
     margin-left: 100px;
@@ -38,11 +38,14 @@
   .myBox:hover .col-sm {
     background-color: rgb(102, 153, 255, 0.8);
   }
+    header.setting-header {
+      padding: 20px;
+  }
 
 </style>
 </head>
 <body>
-  <header>
+  <header class="setting-header">
     <button class="tablink" onclick="openCity('Pending', this, 'green')">Pending Request</button>
     <button class="tablink" onclick="openCity('Confirmed', this, 'blue')">Confirmed Request</button>
   </header>
@@ -59,7 +62,7 @@
         
       <% pending_requests.each do |pending_request| %>
         <span class="myBox">
-          <a href="/applications?employer_id=<%= pending_request.id %>&&chain_value_id=<%= pending_request.chain_value.id %>" class="col-sm">
+          <a href="/applications?employer_id=<%= pending_request.id %>&&chain_value_id=<%= pending_request.chain_value.id %>" onclick="location.reload()" class="col-sm">
             <p>
               <h3>Company: <%= "#{pending_request.company_name}" %> </h3>
                Employer Names: <%="#{ pending_request.first_name } #{pending_request.last_name}"%> <br>

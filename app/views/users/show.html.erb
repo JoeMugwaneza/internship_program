@@ -23,10 +23,10 @@
 
       <div>
         <p>
-          Then <%= @user.last_name %>,  <span class="glyphicon glyphicon-hand-right"> here you are.</span>
+          Then <%= @user.last_name %>,  <span class="glyphicon glyphicon-hand-down"> there you are.</span>
         </p>
         <div class="get-started-btn">          
-        <a href="<%= new_application_path %>" class="btn btn-default">Get started with application</a>
+        <a href="<%= new_application_path %>" onclick="location.reload()" class="btn btn-default">Get started with application</a>
         </div>
       </div>
     </section>

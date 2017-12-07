@@ -1,5 +1,6 @@
 class EmployersController < ApplicationController
   before_action :set_employer, :only => [:show, :edit, :update, :congratulations]
+  before_action :authenticate_user!, :only => [:index]
 
   def index
     @pending_employer_requests = Employer.pending_request

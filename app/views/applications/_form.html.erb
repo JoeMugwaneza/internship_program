@@ -21,10 +21,10 @@
     <fieldset>
       <legend>Location</legend>
       <%= f.label :district_id %>
-      <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: true %>
+      <%= f.collection_select :district_id, District.order(:name), :id, :name, include_blank: "Select District" %>
       <span id="sector-section"> 
        <%= f.label :sector_id %>
-       <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: true %>
+       <%= f.grouped_collection_select :sector_id, District.order(:name), :sectors, :name, :id, :name, include_blank: "Select Sector" %>
      </span>
    </fieldset><br>
    <fieldset>
@@ -37,12 +37,12 @@
     <%= f.label :phone_number %>
     <%= f.number_field :phone_number %>
     <%= f.label :field_of_study %>
-    <%= f.select :field_of_study_id, FieldOfStudy.all.collect {|education| [education.name, education.id]}, include_blank: "Select option" %>
+    <%= f.select :field_of_study_id, FieldOfStudy.all.collect {|education| [education.name, education.id]}, include_blank: "Select field of study" %>
     
     <div class="input-application-options">
     <%= f.label :bank_name %>
-    <%= f.select :bank_id, Bank.all.collect {|bank| [bank.name, bank.id]}, include_blank: "Select option" %>
-    <%= f.label :bank_number %>
+    <%= f.select :bank_id, Bank.all.collect {|bank| [bank.name, bank.id]}, include_blank: "Select bank name" %>
+    <%= f.label :bank_account_number%>
     <%= f.number_field :bank_number %>
     </div>
   </fieldset><br>

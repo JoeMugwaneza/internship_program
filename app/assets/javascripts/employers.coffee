@@ -13,6 +13,8 @@ jQuery ->
     if options
       $('#employer_sector_id').html(options)
       $('#employer_sector_id').parent().show()
+      $('#employer_sector_id').prepend('<option value="0"></option>')
+      $('#employer_sector_id').val(0)
     else
       $('#employer_sector_id').empty()
       $('#employer_sector_id').parent().hide()

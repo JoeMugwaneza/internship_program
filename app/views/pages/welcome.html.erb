@@ -90,13 +90,13 @@
               <p>
                 There is a single intern request form to fill and wait a very short time while processing your request.
               </p>
-              <a href="<%= new_employer_path %>" class="btn btn-default">Request Interns</a>
+              <a href="<%= new_employer_path %>" onclick="location.reload()" class="btn btn-default">Request Interns</a>
             </aside>
 
             <aside class="col-md-5 about-intern">
               <h4 style="font-weight: bolder;">Graduates Side</h4>
               <p>
-                You will use the system form the time of applying, getting notification about internship as well as the entire time doing internship so as to communicate with RYAF Administration for further assistance. 
+                Will use the system from the time of applying, getting internship update as well as the entire time doing internship so as to communicate with RYAF Administration for further assistance. 
               </p>
               <a href="<%= new_user_registration_path %>" class="btn btn-default">Sign up</a>
             </aside>
@@ -150,7 +150,7 @@
     <footer>
       <ul>
         <li><a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Apply to CESB</a></li>
-        <li><a href="#">RYAF Official Website</a></li>
+        <li><a href="#" target="_blank">RYAF Official Website</a></li>
         <li><a href="<%= new_user_registration_path %>">Internship System Signup</a></li>
       </ul>
     </footer>
