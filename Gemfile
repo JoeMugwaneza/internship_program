@@ -61,5 +61,4 @@ gem 'rails_admin_rollincode', '~> 1.0'
 
 group :assets do
   gem 'therubyracer'
-
 end

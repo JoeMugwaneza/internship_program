@@ -7,6 +7,7 @@
 </head>
 
 <body>
+  <main>
   <% if @user.application.nil? %>
     <section class="welcome-profile-note">
       <div>
@@ -73,7 +74,7 @@
             <legend>Internship Status</legend>
             <ul>
               <li>
-                Started At: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
+                Started on: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
               </li>
               <li>
                 Expected End: <time><%= @user.application.internship_update.expected_end %></time>
@@ -98,11 +99,18 @@
     </section>
 
     <!-- To be fixed on the side of the page -->
+    <% if @user.check_monthly_survey%>
     <aside>
-      
+        <div>
+          <p>
+            At the end of each month during the time of internship, we need to hear from you about how you are developing. Thus, take a short time to give us insight of how you are working. <a href="<%= new_survey_path %>">Submit Monthly Report</a>
+          </p>
+        </div>
     </aside>
+    <% end %>
   <% end %>
 
+  </main>
 </body>
 </html>
 

@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
   before_action :find_user, :only => [:show, :edit, :update, :destory]
   
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.group_by {|surveys| surveys.created_at.strftime("%B, %Y")}
     find_survey
   end
 
