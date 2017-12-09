@@ -46,8 +46,6 @@ class User < ApplicationRecord
     surveys.group_by{|surveys| surveys.created_at.month}.empty?
   end
 
-
-
   rails_admin do
     # configure :reset_password
     list do
