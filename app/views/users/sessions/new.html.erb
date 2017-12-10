@@ -31,7 +31,7 @@
 
         <div class="field">
           <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
-          <span class="glyphicon glyphicon-eye-open" id="code-status"></span>
+          <span class="glyphicon glyphicon-eye-close" id="code-status"></span>
         </div>
 
         <% if devise_mapping.rememberable? -%>
@@ -57,10 +57,10 @@
     click: function(){
       if ( $('#user_password').attr('type') == "password") {
         $('#user_password').attr('type', 'text')
-        $('#code-status').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close')
+        $('#code-status').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open')
       } else {
         $('#user_password').attr('type', 'password')
-        $('#code-status').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open')
+        $('#code-status').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close')
       }
     }
   })
