@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
   def create
     self.resource = warden.authenticate!(auth_options)
     if @user.admin == true
-      redirect_to employers_path, notice: "Welcome back #{@user.last_name}!"
+      redirect_to root_url, notice: "Welcome back #{@user.last_name}!"
     else
       redirect_to user_path(@user), notice: "This is the Intern profile"
     end

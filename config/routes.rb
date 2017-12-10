@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'surveys#index'
+  root to: 'dashboards#index'
 
   devise_for :users, controllers: {sessions: 'sessions'}
 

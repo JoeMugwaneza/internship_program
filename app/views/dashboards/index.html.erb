@@ -40,11 +40,11 @@
                 <td><%= user.first_name %></td>
                 <td><%= user.last_name %></td>
                 <td><%= user.id_number %></td>
-                <td><%= user.tel %></td>
-                <td><%= user.gender %></td>
-                <td><%= user.field_of_studies %></td>
-                <td><%= user.district %></td>
-                <td><%= user.sector %></td>
+                <td><%= user.application.phone_number %></td>
+                <td><%= user.application.gender %></td>
+                <td><%= user.application.field_of_study.name%></td>
+                <td><%= user.application.district.name %></td>
+                <td><%= user.application.sector.name %></td>
               </tr>
             <% end %>
             </tbody>
