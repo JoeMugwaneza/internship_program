@@ -58,6 +58,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'rails_admin', '~> 1.2'
 gem 'rails_admin_rollincode', '~> 1.0'
+# gem 'adminlte-rails'
 
 group :assets do
   gem 'therubyracer'
