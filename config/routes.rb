@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :employers
   resources :applications
   resources :internship_updates
-
+  resources :contacts, :only => [:index, :new, :create]
   # designs
   get "/signup" => "pages#signup"
   get "/welcome" => "pages#welcome", as: "welcome"

@@ -100,38 +100,7 @@
         <div class="contact-us-content">
 
 
-          <h4>Contact Form</h4>
-          <summary>
-            <form>
-              <fieldset>
-                <div class="contact-input-row">
-
-                  <label>Full Name: </label>
-                  <input type="name" name="fname" placeholder="Eg. Joseph Mugwaneza" required="required"><br>
-                </div>
-
-                <div class="contact-input-row">
-                  <label>Telephone:</label>
-                  <input type="numeric" name="telephone" placeholder="eg. 0780000000 " required><br>
-                </div>
-
-                <div class="contact-input-row">                   
-                  <label>Email Address: </label>
-                  <input type="email" name="emailAddress" placeholder="Eg. mugwaneza@ryaf.rw"><br>
-                </div>
-
-                <div class="contact-input-row">                  
-                  <label>Message</label>
-                  <textarea rows="4" cols="30" name="messageDescription" placeholder="Type your message here....." required></textarea>
-                </div>
-
-              </fieldset>
-              <div class="get-started-btn">                
-                <button class="btn btn-default">Submit</button>
-              </div>
-
-            </form>
-          </summary>
+          <%= render  'contacts/form' %>
         </div>   
       </div>
     </section>
