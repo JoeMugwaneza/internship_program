@@ -12,7 +12,7 @@
     </tr>
     <% applications.each do |application| %>
     <tr>
-      <td><%= application.user.first_name %></td>
+      <td><%= "#{application.user.first_name} #{application.user.last_name}" %></td>
       <td><%= application.user.id_number %></td>
       <td><%= application.district.name %></td>
       <td><%= application.created_at.strftime("%B %Y") %></td>

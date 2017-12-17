@@ -54,9 +54,26 @@ class Application < ApplicationRecord
     ]
 )
 
-  scope :sorted_by, lambda { |sort_key|}
+  scope :sorted_by, lambda { |sort_option|
+
+    direction = (sort_option =~ /desc$/) ? 'desc' : 'asc'
+    case sort_option.to_s
+
+    when /^created_at_/
+    order("applications.created_at #{ direction }")
+
+    when /^name_/
+      order("LOWER(users.last_name) #{ direction }, LOWER(users.first_name) #{ direction }").joins(:user)
+
+      when /^country_name_/
+        order("LOWER(districts.name) #{ direction }").includes(:district)
+      else
+        raise(ArgumentError, "Invalid sort option: #{ sort_option.inspect }")
+      end
+  }
 
   scope :search_query, lambda {|query|
+
     return nil if query.blank?
     terms = query.downcase.split(/\s+/)
     terms = terms.map { |e|
