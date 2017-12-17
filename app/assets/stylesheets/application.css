@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require bootstrap-datepicker
  */
 
-
+ 
  html body {
   font-family: 'Montserrat', sans-serif;
 }

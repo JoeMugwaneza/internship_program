@@ -42,4 +42,51 @@ class Application < ApplicationRecord
       where("district_id =? AND field_of_study_id =?", district_id, field_of_study_id)
     end
   end
+
+
+  filterrific(
+    default_filter_params: { sorted_by: 'created_at_desc' },
+    available_filters: [
+      :sorted_by,
+      :search_query,
+      :with_district_id,
+      :with_created_at_gte
+    ]
+)
+
+  scope :sorted_by, lambda { |sort_key|}
+
+  scope :search_query, lambda {|query|
+    return nil if query.blank?
+    terms = query.downcase.split(/\s+/)
+    terms = terms.map { |e|
+      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+    }
+    num_or_conds = 1
+    where(
+      terms.map {|term|
+        "LOWER(applications.user.first_name) LIKE ? OR LOWER(applications.user.last_name) LIKE ?"
+        }.join('AND'),
+        *terms.map {|e| [e] *num_or_conds}.flatten
+        )
+  }
+
+  scope :with_district_id, lambda {|district_ids|
+    where(district_id: [*district_ids])
+  }
+  
+  scope :with_created_at_gte, lambda {|ref_date|
+    where('applications.created_at >= ?', ref_date)
+  }
+
+
+  def self.options_for_sorted_by
+    [
+      ['Name (a-z)', 'name_asc'],
+      ['Application date (newest first)', 'created_at_desc'],
+      ['Application date (oldest first)', 'created_at_asc'],
+      ['District (a-z)', 'district_name_asc']
+    ]
+    
+  end
 end
