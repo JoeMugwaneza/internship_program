@@ -7,38 +7,79 @@
 </head>
 <body>
   <main>
-    
-    <!-- table that filter everything and with count -->
+    <!-- Section for filters -->
     <section>
-      <%= form_for_filterrific @filterrific do |f| %>
-      <div>
-        search
-        <%= f.text_field(:search_query, class: 'filterrific-periodically-observed') %>
-      </div>
+      <div class="container-fuild" style="margin: 10px;">
 
-      <div>
-        District
-        <%= f.select(:with_district_id, @filterrific.select_options[:with_district_id], {include_blank: '- Any -'}) %>
-      </div>
+   <div class="current-database">
+   <p>
+    <h4>Current Database</h4>
+    <ul>
+     <li>
+      Applicants: <%= @applicants.count %>
+     </li>
+     <li>
+      Got Internship: <%= @applicants.got_internship.count %>
+     </li>
+     <li>
+      Waiting: <%= @applicants.looking_internship.count %>
+     </li>
+    </ul>
+  </p>
+  </div>
 
-      <div>
-        Registered After
-        <%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
-      </div>
+<h2>Advanced Filters:</h2>
+<%= form_tag dashboards_path, :method => 'get' do  %>
+  <%= label_tag :field_of_study_id %>
+  <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
+  <%= label_tag :district_id %>
+  <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %>
+  
+  <span id="sector-section"> 
+    <%= label_tag :sector_id %>
+    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
+  </span>
 
-      <div>
-        Sorted by 
-        <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
-      </div>
+  <br><br> <%= submit_tag "Look(filter)" %>
 
-      <div>
-        <%= link_to('Reset Filter', reset_filterrific_url) %>
-      </div>
+<% end %><br>
+  <input type="button" class="btn btn-info" value="Reset Filter" onclick="location.href = '<%= root_url %>';">
 
-      <%= render_filterrific_spinner %>
-      <% end %>
-
-      <%= render(partial: 'dashboards/list', locals: { applications: @applications }) %>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>National ID</th>
+        <th>Gender</th>
+        <th>Bank Name</th>
+        <th>Bank Number</th>
+        <th>District</th>
+        <th>Sector</th>
+        <th>Field of Study</th>
+      </tr>
+    </thead>
+  <% @applicants.each do |application| %>    
+    <tbody>
+      <tr>
+        <td><%= application.user.first_name %></td>
+        <td><%= application.user.last_name %></td>
+        <td><%= application.phone_number %></td>
+        <td><%= application.user.email %></td>
+        <td><%= application.user.id_number %></td>
+        <td><%= application.gender %></td>
+        <td><%= application.bank.name %></td>
+        <td><%= application.bank_number %></td>
+        <td><%= application.district.name %></td>
+        <td><%= application.sector.name %></td>
+        <td><%= application.field_of_study.name %></td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
+</div>
     </section>
 
     <section>
@@ -50,11 +91,7 @@
     </aside>
   </main>
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-    $('.js-datepicker').datepicker();
-  });
-  </script>
-
 </body>
 </html>
+
+<%#= will_paginate applications, renderer: BootstrapPagination::Rails %>

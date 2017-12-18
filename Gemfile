@@ -62,11 +62,8 @@ gem 'rails_admin_rollincode', '~> 1.0'
 # gem 'adminlte-rails'
 
 # search, sort and filter gem
-gem 'filterrific'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
-                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 group :assets do
   gem 'therubyracer'

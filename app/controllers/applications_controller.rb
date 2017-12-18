@@ -3,7 +3,10 @@ class ApplicationsController < ApplicationController
   before_action :authenticate_user!, :only => [:index]
 
   def index
-      if params[:application]
+    if params[:application] &&  params[:application][:field_of_study_id].empty? && params[:application][:district_id].empty? && params[:application][:sector_id].empty?
+      @applicants = Application.looking_internship
+
+      elsif params[:application]
         @applicants = Application.looking_internship.search(params[:application])
       else
         @applicants = Application.looking_internship
