@@ -34,7 +34,7 @@
 <h2>Advanced Filters:</h2>
 <%= form_tag dashboards_path, :method => 'get' do  %>
   <%= label_tag :internship_placement %>
-  <%= select_tag(:internship_placement , options_for_select([['All', ""],['Having Internship', true], ['Waiting Internship', false]]) )%>
+  <%= select_tag(:internship_placement , options_for_select([['All', ""],['Having Internship', true], ['Waiting Internship', false]]))%>
   <%= label_tag :field_of_study_id %>
   <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
   <%= label_tag :district_id %>
