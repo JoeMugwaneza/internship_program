@@ -20,7 +20,7 @@
   <body>
     <div class="navbar-pages">
       
-      <a class="navbar-brand" href="<%= root_url %>">RYAF Internship System</a>
+      <a class="navbar-brand" href="<%= root_url %>" onclick="location.reload()">RYAF Internship System</a>
       <% if current_user &&  current_user.admin == true %>
         <a class="navbar-brand" href="/admin">Site admin</a>
         <a class="navbar-brand" href="<%= users_path %>" onclick="location.reload()">Users</a>
