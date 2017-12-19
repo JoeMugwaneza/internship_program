@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219102500) do
+ActiveRecord::Schema.define(version: 20171219125701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20171219102500) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "challenge_name"
+    t.bigint "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_challenges_on_report_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -112,6 +120,14 @@ ActiveRecord::Schema.define(version: 20171219102500) do
     t.index ["application_id"], name: "index_internship_updates_on_application_id"
   end
 
+  create_table "key_activities", force: :cascade do |t|
+    t.string "activity_name"
+    t.bigint "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_key_activities_on_report_id"
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -124,11 +140,36 @@ ActiveRecord::Schema.define(version: 20171219102500) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string "name"
+    t.date "due_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.string "result_name"
+    t.bigint "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_results_on_report_id"
+  end
+
   create_table "sectors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "district_id"
+  end
+
+  create_table "solutions", force: :cascade do |t|
+    t.string "solution_name"
+    t.bigint "report_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_solutions_on_report_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -162,7 +203,12 @@ ActiveRecord::Schema.define(version: 20171219102500) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "applications", "users"
+  add_foreign_key "challenges", "reports"
   add_foreign_key "employer_fields", "employers"
   add_foreign_key "employer_fields", "field_of_studies"
+  add_foreign_key "key_activities", "reports"
+  add_foreign_key "reports", "users"
+  add_foreign_key "results", "reports"
+  add_foreign_key "solutions", "reports"
   add_foreign_key "surveys", "users"
 end

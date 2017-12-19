@@ -24,6 +24,10 @@ Rails.application.routes.draw do
   get '/dashboards' => "dashboards#index"
 
   get '/employers/:id/well_done' => "employers#congratulations", as: "employer_congratulations"
+
+  # routes for reporting system
+
+  resources :reports
 end
 
 
