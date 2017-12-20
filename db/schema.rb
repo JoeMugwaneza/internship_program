@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20171219125701) do
   end
 
   create_table "challenges", force: :cascade do |t|
-    t.string "challenge_name"
+    t.text "challenge_name"
     t.bigint "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20171219125701) do
   end
 
   create_table "key_activities", force: :cascade do |t|
-    t.string "activity_name"
+    t.text "activity_name"
     t.bigint "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20171219125701) do
   end
 
   create_table "results", force: :cascade do |t|
-    t.string "result_name"
+    t.text "result_name"
     t.bigint "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20171219125701) do
   end
 
   create_table "solutions", force: :cascade do |t|
-    t.string "solution_name"
+    t.text "solution_name"
     t.bigint "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

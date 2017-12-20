@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :find_and_set_report, :only => [:show, :edit, :update, :destory]
+  before_action :find_and_load_report, :only => [:show, :edit, :update, :destory]
 
   def index
     @reports = Report.all.group_by {|report| report.created_at.strftime("%B, %Y")}
@@ -7,6 +7,10 @@ class ReportsController < ApplicationController
 
   def new
     @report = Report.new
+      @report.key_activities.build
+      @report.solutions.build
+      @report.challenges.build
+      @report.results.build
   end
 
   def create
@@ -37,7 +41,7 @@ class ReportsController < ApplicationController
     params.require(:report).permit(:name, :user_id, :due_date, key_activities_attributes: [:id, :report_id, :activity_name], results_attributes: [:id, :report_id, :result_name], challenges_attributes: [:id, :report_id, :challenge_name], solutions_attributes: [:id, :report_id, :solution_name])
   end
 
-  def find_and_set_report
+  def find_and_load_report
     @report = Report.find(params[:id])
   end
 
