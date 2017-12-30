@@ -4,55 +4,71 @@
   <title>Create report | Internship Program</title>
 </head>
 <body>
+  <div class="report-form">    
+    <details>
+      <summary>General Information</summary>
+      <ul>
+        <li>Full name: <%= "#{@user.first_name} #{@user.last_name}" %></li>
+        <li>Phone number: <%= @user.application.phone_number %></li>
+        <li>National ID number: <%= @user.id_number %></li>
+        <li>Bank name: <%= @user.application.bank.name %></li>
+        <li>Account number: <%= @user.application.bank_number %></li>
+      </ul>
+      <a href="<%= edit_user_path(@user) %>" class="btn btn-secondary">Edit general information</a>
+    </details>
 
-  <%= form_for @report do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, value: "#{@report.name = "#{current_user.first_name}#{current_user.last_name}.#{Time.now.strftime("%B")}Report"}", readonly: "readonly" %>
-    <%= f.label :due_date %>
-    <%= f.date_field :due_date %>
-    <fieldset>
-      <legend>What did you do throughout the month? <small>Key Performed Activities</small></legend>
+    <%= form_for @report do |f| %>
+    <div align="center">      
+      <%= f.label :name %>
+      <%= f.text_field :name, value: "#{@report.name = "#{current_user.first_name}#{current_user.last_name}.#{Time.now.strftime("%B")}Report"}", readonly: "readonly" %>
+      <%= f.label :due_date %>
+      <%= f.date_field :due_date, value: "#{Date.current.year}-#{Date.current.month}-12", readonly: "readonly" %>
+    </div>
+    <fieldset class="input-box">
+      <h3>What did you do throughout the month? <small>Key Performed Activities</small></h3>
 
-    <%= f.nested_fields_for :key_activities  do |key| %>
+      <%= f.nested_fields_for :key_activities  do |key| %>
       <%= key.hidden_field :report_id, value: "#{report_id = @report.id}" %>
       <%= key.text_area :activity_name, placeholder: "Enter key performed activity here" %>
-      <%= key.remove_nested_fields_link "Remove Me" %>
-    <% end %>
-      <%= f.add_nested_fields_link :key_activities, "Add Activity" %>
+      <%= key.remove_nested_fields_link "Delete", class:"btn btn-danger" %>
+      <% end %>
+      <%= f.add_nested_fields_link :key_activities, "Add Activity", class:"btn btn-secondary" %>
     </fieldset>
 
-    <fieldset>
-      <legend>What did you produce from the performed activities? <small>Results</small></legend>
-    <%= f.nested_fields_for :results do |achieve| %>
+    <fieldset class="input-box">
+      <h3>What did you produce from the performed activities? <small>Results</small></h3>
+      <%= f.nested_fields_for :results do |achieve| %>
       <%= achieve.hidden_field :report_id, value: "#{report_id = @report.id}" %>
       <%= achieve.text_area :result_name, placeholder: "Enter result here" %>
-      <%= achieve.remove_nested_fields_link "Remove Me" %>
-    <% end %>
-    <%= f.add_nested_fields_link :results, "Add Result" %>
+      <%= achieve.remove_nested_fields_link "Delete", class:"btn btn-danger" %>
+      <% end %>
+      <%= f.add_nested_fields_link :results, "Add Result", class:"btn btn-secondary" %>
     </fieldset>
 
-    <fieldset>
-      <legend>What Challenges did you face? <small>Anything that affected your performance</small></legend>
+    <fieldset class="input-box">
+      <h3>What Challenges did you face? <small>Anything that affected your performance</small></h3>
       <%= f.nested_fields_for :challenges do |worry| %>
-        <%= worry.hidden_field :report_id, value: "#{report_id = @report.id}" %>
-        <%= worry.text_area :challenge_name, placeholder: "Enter challenge faced here"  %>
-        <%= worry.remove_nested_fields_link "Remove Me" %>
+      <%= worry.hidden_field :report_id, value: "#{report_id = @report.id}" %>
+      <%= worry.text_area :challenge_name, placeholder: "Enter challenge faced here"  %>
+      <%= worry.remove_nested_fields_link "Delete", class:"btn btn-danger" %>
       <% end %>
-      <%= f.add_nested_fields_link :challenges, "Add Challenge" %>
+      <%= f.add_nested_fields_link :challenges, "Add Challenge", class:"btn btn-secondary" %>
     </fieldset>
 
-    <fieldset>
-      <legend>what can you do to eradicate or reduce the challenges faced? <small>Suggest solutions</small></legend>
+    <fieldset class="input-box">
+      <h3>what can you do to eradicate or reduce the challenges faced? <small>Suggest solutions</small></h3>
       <%= f.nested_fields_for :solutions do |active| %>
-        <%= active.hidden_field :report_id, value: "#{report_id = @report.id}" %>
-        <%= active.text_area :solution_name, placeholder: "Enter suggested solution here" %>
-        <%= active.remove_nested_fields_link "Remove Me" %>
+      <%= active.hidden_field :report_id, value: "#{report_id = @report.id}" %>
+      <%= active.text_area :solution_name, placeholder: "Enter suggested solution here" %>
+      <%= active.remove_nested_fields_link "Delete", class:"btn btn-danger" %>
       <% end %>
-      <%= f.add_nested_fields_link :solutions, "Add Solution" %>
+      <%= f.add_nested_fields_link :solutions, "Add Solution", class:"btn btn-secondary" %>
     </fieldset>
-
-    <%= f.submit "Initiate Report" %>
-  <% end %>
+    <div align="center">      
+    <%= f.submit "Initiate Report", class:"btn btn-tertiary" %>
+    </div>
+    <% end %>
+  </div>
 
 </body>
 </html>

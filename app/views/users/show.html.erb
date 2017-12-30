@@ -2,20 +2,20 @@
 <html>
 <head>
   <% content_for :title do %>
-    <title> <%= full_name %>| Internship Program</title>
+  <title> <%= full_name %>| Internship Program</title>
   <% end %>
 </head>
 
-<body>
+<body class="user-profile">
   <main>
-  <% if @user.application.nil? %>
+    <% if @user.application.nil? %>
     <section class="welcome-profile-note">
       <div>
         <h4>Hello <%= @user.last_name %></h4>
         <p>
           Thank you very much for making it to <strong>RYAF Internship System</strong>. The first step towards getting internship is completed; you are remaining with only <em>final stage of application</em> and next work will be handled by RYAF internship program team.
         </p>
-          <h4>Reminder</h4>
+        <h4>Reminder</h4>
         <p>
           As you should have heard or read on welcome page of this system, RYAF internship program partner with CESB ( Capacity Development and Employment Services Board), which means, we only work with graduates who are registred in CEBS database. Thus, if you have not registered there yet, you should <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">click here</a> and register first before completing the last stage of our application. The reason for that is, we can't serve you unless you are in CESB database. 
         </p>
@@ -27,88 +27,99 @@
           If you have completed CESB Internship E-form, then <mark><%= @user.last_name %></mark>  RYAF gives you go ahead authority <span class="glyphicon glyphicon-hand-down"> </span>
         </p>
         <div class="get-started-btn">          
-        <a href="<%= new_application_path %>" onclick="location.reload()" class="btn btn-default">Get started with application</a>
+          <a href="<%= new_application_path %>" onclick="location.reload()" class="btn btn-default">Get started with application</a>
         </div>
       </div>
     </section>
-  <% else %>
-    <section>
+    <% else %>
+    
+    
+    <section class="profile-info col-md-6 col-md-offset-1">
       <div>
-          <fieldset>
-            <legend>Personal</legend>
-            <ul>
-              <li>
-                Names: <%= full_name %>
-              </li>
-              <li>
-                Email: <%= @user.email %>
-              </li>
-              <li>
-                Phone number: <%= @user.application.phone_number %> 
-              </li>
-              <li>
-                Gender: <%= @user.application.gender %>
-              </li>
-              <li>
-                National ID: <%= @user.id_number %>
-              </li>
-              <li>
-                Bank name: <%= "#{@user.application.bank.name}; #{@user.application.bank_number}" %>
-              </li>
-            </ul>
-          </fieldset>
-          <fieldset>
+        <div class="edit-profile-btn">          
+        <a href="<%=  edit_user_path(@user)%>" class="btn btn-secondary" >Edit</a>
+        </div>
+
+        <fieldset class="row personal-info">
+          <div class="subsection title col-md-5">
+            <legend>Personal</legend>              
+          </div>
+          <ul class="subsection content col-md-7">
+            <li>
+              Names: <%= full_name %>
+            </li>
+            <li>
+              Email: <%= @user.email %>
+            </li>
+            <li>
+              Phone number: <%= @user.application.phone_number %> 
+            </li>
+            <li>
+              Gender: <%= @user.application.gender %>
+            </li>
+            <li>
+              National ID: <%= @user.id_number %>
+            </li>
+            <li>
+              Bank name: <%= "#{@user.application.bank.name}; #{@user.application.bank_number}" %>
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset class="row eduaction-info">
+          <div class="subsection title col-md-5">              
             <legend>Education & Location</legend>
-            <ul>
-              <li>
-                Studied: <%= @user.application.field_of_study.name %>
-              </li>
-              <li>
-                Currently Living in: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
-              </li>
-            </ul>
-            <a href="<%=  edit_user_path(@user)%>">Edit Information</a>
-          </fieldset>
-          <% if @user.application.internship_update.present? %>
-          <fieldset>
+          </div>
+          <ul class="subsection content col-md-5">
+            <li>
+              Studied: <%= @user.application.field_of_study.name %>
+            </li>
+            <li>
+              Currently Living in: <%= "#{@user.application.district.name}, #{@user.application.sector.name}" %>
+            </li>
+          </ul>
+        </fieldset>
+        <% if @user.application.internship_update.present? %>
+        <fieldset class="row internship-info">
+          <div class="subsection title col-md-5">              
             <legend>Internship Status</legend>
-            <ul>
-              <li>
-                Started on: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
-              </li>
-              <li>
-                Expected End: <time><%= @user.application.internship_update.expected_end %></time>
-              </li>
-              <li>
-                Remaining: <time><%= @user.application.internship_update.remaining_time%></time>
-              </li>
-              <li>
-                Working in: <%= @user.application.internship_update.chain_value.name %>
-              </li>
-              <li>
-                Employer name: <%= "#{@user.application.internship_update.employer.first_name} #{@user.application.internship_update.employer.last_name}" %>
-              </li>
-              <li>
-                Working place: <%= "#{@user.application.internship_update.employer.district.name}, #{@user.application.internship_update.employer.sector.name}" %>
-              </li>
-            </ul>
-          </fieldset>
-          <% end %>
+          </div>
+          <ul class="subsection content col-md-7">
+            <li>
+              Started on: <time><%= @user.application.internship_update.starting_at.strftime("%B %d, %Y")%></time>
+            </li>
+            <li>
+              Expected End: <time><%= @user.application.internship_update.expected_end %></time>
+            </li>
+            <li>
+              Remaining: <time><%= @user.application.internship_update.remaining_time%></time>
+            </li>
+            <li>
+              Working in: <%= @user.application.internship_update.chain_value.name %>
+            </li>
+            <li>
+              Employer name: <%= "#{@user.application.internship_update.employer.first_name} #{@user.application.internship_update.employer.last_name}" %>
+            </li>
+            <li>
+              Working place: <%= "#{@user.application.internship_update.employer.district.name}, #{@user.application.internship_update.employer.sector.name}" %>
+            </li>
+          </ul>
+        </fieldset>
+        <% end %>
       </div>
       
     </section>
 
     <!-- To be fixed on the side of the page -->
-    <% if @user.check_monthly_survey%>
-    <aside>
-        <div>
-          <p>
-            At the end of each month during the time of internship, we need to hear from you about how you are developing. Thus, take a short time to give us insight of how you are working. <a href="<%= new_survey_path %>">Submit Monthly Report</a>
-          </p>
-        </div>
+    <% if @user.reports.last.checking_due_date > Time.now%>
+    <aside class="col-md-3">
+      <div>
+        <p>
+          At the end of each month during the time of internship, we need to hear from you about how you are developing. Thus, take a short time to give us insight of how you are working. <a href="<%= new_report_path %>" class="btn btn-tertiary">Submit Monthly Report</a>
+        </p>
+      </div>
     </aside>
     <% end %>
-  <% end %>
+    <% end %>
 
   </main>
 </body>
@@ -118,4 +129,3 @@
 
 
 
-  

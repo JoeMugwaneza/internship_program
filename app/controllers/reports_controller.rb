@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @report = Report.new
       @report.key_activities.build
       @report.solutions.build
@@ -42,7 +43,7 @@ class ReportsController < ApplicationController
   end
 
   def find_and_load_report
+    @user = current_user
     @report = Report.find(params[:id])
   end
-
 end

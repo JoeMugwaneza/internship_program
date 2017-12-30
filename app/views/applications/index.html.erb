@@ -2,64 +2,61 @@
 <html>
 <head>
  <% content_for :title do %>
-    <title>Applications| Internship Program</title>
-<% end %>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style type="text/css">
+ <title>Applications| Internship Program</title>
+ <% end %>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-   .current-database{
-    width: 25%;
-    border: 5px solid rgb(124, 74, 21);
-    padding: 10px;
-    margin: 25px;
-   }
-
-   .current-database ul li {
-    list-style-type: circle;
-   }
-  </style>
 </head>
 <body>
-  <div class="container-fuild" style="margin: 10px;">
+  <div class="reports-index">
+    <div class="row data-filter">
+      <div class="col-md-6 filters-option">      
+        <h2>Advanced Filters:</h2>
+        <%= form_tag applications_path, :method => 'get' do  %>
+        <%= label_tag :field_of_study_id %>
+        <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
+        <%= label_tag :district_id %>
+        <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %> <br>
+        <span id="sector-section"> 
+          <%= label_tag :sector_id %>
+          <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
+        </span>
 
-   <div class="current-database">
-   <p>
-    <h4>Current Database</h4>
-    <ul>
-     <li>
-      Applicants: <%= @applicants.count %>
-     </li>
-     <li>
-      Got Internship: <%= @applicants.got_internship.count %>
-     </li>
-     <li>
-      Waiting: <%= @applicants.looking_internship.count %>
-     </li>
-    </ul>
-  </p>
+        <ul class="filters-btns">
+          <li class="look-filter"><%= submit_tag "Look(filter)", class:"btn btn-secondary" %></li>
+          <li class="reset-filter"><input type="button" class="btn btn-tertiary" value="Reset Filter" onclick="location.href = '<%= applications_path %>';"></li>
+        </ul>
+
+        <% end %> <br>
+      </div>
+
+      <div class="current-database">
+        <fieldset class="row personal-info">
+          <div class="subsection title col-md-5">
+            <h4>Current Database</h4>
+          </div>
+          <ul class="subsection content col-md-7">
+           <li>
+            Applicants: <%= @applicants.count %>
+          </li>
+          <li>
+            Got Internship: <%= @applicants.got_internship.count %>
+          </li>
+          <li>
+            Waiting: <%= @applicants.looking_internship.count %>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
   </div>
-
-<h2>Advanced Filters:</h2>
-<%= form_tag applications_path, :method => 'get' do  %>
-  <%= label_tag :field_of_study_id %>
-  <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
-  <%= label_tag :district_id %>
-  <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %>
-  <span id="sector-section"> 
-    <%= label_tag :sector_id %>
-    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
-  </span>
-
-  <br><br> <%= submit_tag "Look" %>
-<% end %> <br>
 
   <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="table-headings">
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Phone Number</th>
@@ -73,7 +70,7 @@
         <th>Field of Study</th>
       </tr>
     </thead>
-  <% @applicants.each do |applicant| %>    
+    <% @applicants.each do |applicant| %>    
     <tbody>
       <tr>
         <td><%= applicant.user.first_name %></td>
@@ -88,13 +85,13 @@
         <td><%= applicant.sector.name %></td>
         <td><%= applicant.field_of_study.name %></td>
       </tr>
-  <% end %>
+      <% end %>
     </tbody>
   </table>
+<div>
+  <%= render 'internship_updates/form' %>
 </div>
-  <div>
-    <%= render 'internship_updates/form' %>
-  </div>
+</div>
 
 </body>
 </html>

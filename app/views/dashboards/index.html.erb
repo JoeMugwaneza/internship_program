@@ -2,55 +2,98 @@
 <html lang="en-US">
 <head>
   <% content_for :title do %>
-    <title>Admin main Dashboard</title>
+  <title>Admin main Dashboard</title>
   <% end %>
 </head>
 <body>
-  <main>
+  <main class="admin-root-page">
     <!-- Section for filters -->
+    <section class="row admin-summary">
+      <div class="col-md-9">
+        <div class="col-md-4 summary-box">
+          <div class="col-md-4 icon graduates">
+            <i class="fa fa-users"></i>
+          </div>
+          <div class="col-md-8 summary-content">
+            <h4>Upcoming graduates</h4>
+            <p>23</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 summary-box">
+          <div class="col-md-4 icon reports">
+            <i class="fa fa-book"></i>
+          </div>
+          <div class="col-md-8 summary-content">
+            <h4>Submitted reports</h4>
+            <p>41</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 summary-box">
+          <div class="col-md-4 icon registrations">
+            <i  class="fa fa-plus"></i>
+          </div>
+          <div class="col-md-8 summary-content">
+            <h4>New registrations</h4>
+            <p>16</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="container-fuild" style="margin: 10px;">
 
-   <div class="current-database">
-   <p>
-    <h4>Current Database</h4>
-    <ul>
-     <li>
-      Graduates seeking for Internship: <%= @applicants.count %>
-     </li>
-     <li>
-      Graduates with Internship: <%= @applicants.got_internship.count %>
-     </li>
-     <li>
-      Graduate still Waiting for Internship: <%= @applicants.looking_internship.count %>
-     </li>
-     <li>
-       Graduated Interns: <%= graduated_interns.size %>
-     </li>
-    </ul>
-  </p>
-  </div>
+        <div class="row data-filter">
+          <div class="col-md-6 filters-option">      
+           <h2>Advanced Filters:</h2>
+           <%= form_tag dashboards_path, :method => 'get' do  %>
+           <%= label_tag :field_of_study_id %>
+           <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
+           <%= label_tag :district_id %>
+           <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %><br>
 
-<h2>Advanced Filters:</h2>
-<%= form_tag dashboards_path, :method => 'get' do  %>
-  <%= label_tag :field_of_study_id %>
-  <%= collection_select :application, :field_of_study_id, FieldOfStudy.all, :id, :name, :prompt => true %>
-  <%= label_tag :district_id %>
-  <%= collection_select :application, :district_id, District.all, :id, :name, :prompt => true %>
-  
-  <span id="sector-section"> 
-    <%= label_tag :sector_id %>
-    <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
-  </span>
+           <span id="sector-section"> 
+            <%= label_tag :sector_id %>
+            <%= grouped_collection_select :application, :sector_id, District.all, :sectors, :name, :id, :name, include_blank: true%>
+          </span>
+          
+          <ul class="filters-btns">
+            <li class="look-filter"><%= submit_tag "Look(filter)", class:"btn btn-secondary" %></li>
+            <li class="reset-filter"><input type="button" class="btn btn-tertiary" value="Reset Filter" onclick="location.href = '<%= root_url %>';"></li>
+          </ul>
+          <% end %><br>
+          
+        </div>
 
-  <br><br> <%= submit_tag "Look(filter)" %>
+        <div class="col-md-6 current-database">
+          <fieldset class="row personal-info">
+            <div class="subsection title col-md-5">
+              <h4>Current Database</h4>
+            </div>
+            <ul class="subsection content col-md-7">
+             <li>
+              Graduates seeking for Internship: <%= @applicants.count %>
+            </li>
+            <li>
+              Graduates with Internship: <%= @applicants.got_internship.count %>
+            </li>
+            <li>
+              Graduate still Waiting for Internship: <%= @applicants.looking_internship.count %>
+            </li>
+            <li>
+             Graduated Interns: <%= graduated_interns.size %>
+           </li>
+         </ul>
+       </fieldset>
+     </div>
 
-<% end %><br>
-  <input type="button" class="btn btn-info" value="Reset Filter" onclick="location.href = '<%= root_url %>';">
+   </div>
 
-  <table class="table table-bordered">
+   <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="table-headings">
         <th>Firstname</th>
         <th>Lastname</th>
         <th>Phone Number</th>
@@ -64,7 +107,7 @@
         <th>Field of Study</th>
       </tr>
     </thead>
-  <% @applicants.each do |application| %>    
+    <% @applicants.each do |application| %>    
     <tbody>
       <tr>
         <td><%= application.user.first_name %></td>
@@ -79,20 +122,12 @@
         <td><%= application.sector.name %></td>
         <td><%= application.field_of_study.name %></td>
       </tr>
-  <% end %>
+      <% end %>
     </tbody>
   </table>
 </div>
-    </section>
-
-    <section>
-      
-    </section>
-
-    <aside>
-      
-    </aside>
-  </main>
+</section>
+</main>
 
 </body>
 </html>

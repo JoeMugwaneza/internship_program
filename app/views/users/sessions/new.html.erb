@@ -25,13 +25,13 @@
 
       <div class="tile-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
+        <div class="field email-input">
           <%= f.text_field :login, placeholder: "Enter id number or email address", class:"form-control" %>
         </div>
 
         <div class="field">
-          <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
           <span class="glyphicon glyphicon-eye-close" id="code-status"></span>
+          <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password . . ." %>
         </div>
 
         <% if devise_mapping.rememberable? -%>
@@ -44,6 +44,7 @@
         <div class="actions">
           <%= f.submit "Log in", class:"login-submit-btn btn btn-default" %>
         </div>
+        Don't you have an account?
         <%= render "devise/shared/links" %>
         <% end %>
       </div>

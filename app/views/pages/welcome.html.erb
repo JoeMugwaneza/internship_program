@@ -46,32 +46,32 @@
     <section id="Instruction">
       <div class="instructions-content">
         <div class="up-content">          
-        <p>
-          RYAF works closely with CESB and, for that, we are only concerned with the applicants who have completed CEBS Online Internship Application E-form, or willing to complete it now <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">here</a>.
-        </p>
-
-        <p class="tipsOfSystem">
-          <h4>Please note that:</h4>
-          <ol>
-            <li>
-              You will not get internship placement when you are not in CESB database
-            </li>
-            <li>
-              You will need to fill in two registration forms before being considered under RYAF
-              <ul>
-                <li>
-                  CESB registraction form <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Click here</a>
-                </li>
-                <li>
-                  RYAF Internship application form <em>Check Sign up button</em>
-                </li>
-              </ul>
-            </ol>
-          </p>
           <p>
-            We are concerned with issues of internship in agricultural related fields. Working with us grant a placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
+            RYAF works closely with CESB and, for that, we are only concerned with the applicants who have completed CEBS Online Internship Application E-form, or willing to complete it now <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">here</a>.
           </p>
-        </div>
+
+          <p class="tipsOfSystem">
+            <h4>Please note that:</h4>
+            <ol>
+              <li>
+                You will not get internship placement when you are not in CESB database
+              </li>
+              <li>
+                You will need to fill in two registration forms before being considered under RYAF
+                <ul>
+                  <li>
+                    CESB registraction form <span class="glyphicon glyphicon-hand-right"></span> <a href="http://cesb.gov.rw/online-services/internship-applications-e-form/" target="_blank">Click here</a>
+                  </li>
+                  <li>
+                    RYAF Internship application form <em>Check Sign up button</em>
+                  </li>
+                </ul>
+              </ol>
+            </p>
+            <p>
+              We are concerned with issues of internship in agricultural related fields. Working with us grant a placement. We work to ensure the best, dreamed experience from the best farmers and collections around the country.
+            </p>
+          </div>
 
           <div class="row bottom-boxes" align="center">            
             <aside class="col-md-5 request-intern">
@@ -87,7 +87,7 @@
               <p>
                 Will use the system from the time of applying, getting internship update as well as the entire time doing internship so as to communicate with RYAF Administration for further assistance. 
               </p>
-              <a href="<%= new_user_registration_path %>" class="btn btn-default">Sign up</a>
+              <a href="<%= new_user_session_path %>" class="btn btn-default">Sign in</a>
             </aside>
           </div>
 
@@ -116,7 +116,7 @@
     <script type="text/javascript">
       
       // Select all links with hashes
-$('a[href*="#"]')
+      $('a[href*="#"]')
   // Remove links that don't actually link to anything
   .not('[href="#"]')
   .not('[href="#0"]')
@@ -126,10 +126,10 @@ $('a[href*="#"]')
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
       && 
       location.hostname == this.hostname
-    ) {
+      ) {
       // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       // Does a scroll target exist?
       if (target.length) {
         // Only prevent default if animation is actually gonna happen
@@ -151,6 +151,6 @@ $('a[href*="#"]')
       }
     }
   });
-    </script>
-  </body>
-  </html>
+</script>
+</body>
+</html>

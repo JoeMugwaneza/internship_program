@@ -43,8 +43,8 @@ class User < ApplicationRecord
     expect_end = range_time.strftime("%B %d, %Y")
   end
 
-  def check_monthly_survey
-    surveys.group_by{|surveys| surveys.created_at.month}.empty?
+  def check_monthly_report_submission
+    reports.group_by{|reports| reports.due_date.month}
   end
 
   rails_admin do
