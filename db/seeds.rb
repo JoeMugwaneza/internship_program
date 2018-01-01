@@ -459,3 +459,37 @@ Sector.create!([
   {name: "Rwezamenyo", district_id: 30}
 ])
 
+Bank.create!([
+  {name: "I&M"},
+  {name: "BK"},
+  {name: "BRD"},
+  {name: "Guaranty Trust Bank"},
+  {name: "Access Bank"},
+  {name: "Ecobank"},
+  {name: "Cogebank"},
+  {name: "BPR"},
+  {name: "KCB"},
+  {name: "Equity Bank"},
+  {name: "Urwego Opportunity Bank"},
+  {name: "Unguka Bank"},
+  {name: "Agaseke Bank"},
+  {name: "Zigama CSS"},
+  {name: "AB Bank"},
+  {name: "Crane Bank"}
+  ])
+
+FieldOfStudy.create!([
+  {name: "Agro Forestry"},
+  {name: "Forestry and nature  Conservation"},
+  {name: "Biodiversity"},
+  {name: "Rural Development"},
+  {name: "Soil Science"},
+  {name: "Food Science"},
+  {name: "Animal Protection"},
+  {name: "Crop Production"},
+  {name: "Agro-economic"},
+  {name: "Agribusiness"},
+  {name: "Agriculture Mechanization"},
+  {name: "Irrigation and Drainage"},
+  {name: "Horticulture"}
+  ])
