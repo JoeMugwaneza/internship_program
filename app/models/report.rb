@@ -11,6 +11,6 @@ class Report < ApplicationRecord
   accepts_nested_attributes_for :key_activities, :reject_if => lambda { |a| a[:activity_name].blank? }, :allow_destroy => true
 
   def checking_due_date
-    self.due_date = "#{Date.current.year}-#{Date.current.month}-31"
+    self.due_date = "#{Date.current.year}-#{Date.current.month}-12"
   end
 end
