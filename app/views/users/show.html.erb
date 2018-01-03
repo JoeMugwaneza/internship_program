@@ -110,7 +110,8 @@
     </section>
 
     <!-- To be fixed on the side of the page -->
-    <% if @user.reports.last.checking_due_date > Time.now%>
+    
+    <%# if @user.reports.last.checking_due_date > Time.now%>
     <aside class="col-md-3">
       <div>
         <p>
@@ -118,7 +119,7 @@
         </p>
       </div>
     </aside>
-    <% end %>
+    <% #end %>
     <% end %>
 
   </main>
